@@ -1,0 +1,33 @@
+{
+  "name": "webpack-dabao-ceshi",
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot --port 9991",
+    "pub--一般不要用": "cross-env NODE_ENV=production webpack --config webpack-dist.config.js && rimraf .public",
+    "build": "webpack --config webpack.config.js"
+  },
+  "license": "ISC",
+  "author": "zhhsh",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "chrome-finder": "^1.0.1",
+    "compass-mixins": "^0.12.10",
+    "cross-env": "^7.0.3",
+    "css-loader": "^0.28.5",
+    "end-webpack-plugin": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gh-pages": "^1.0.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^3.0.2",
+    "sass": "^1.59.2",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.0",
+    "web-webpack-plugin": "^1.9.3",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "react": "^16.13.0"
+  }
+}
