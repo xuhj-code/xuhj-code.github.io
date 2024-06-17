@@ -1,4 +1,4 @@
-@import "../node_modules/compass-mixins/lib/compass/reset";
+// @import "../node_modules/compass-mixins/lib/compass/reset";
 @import "../node_modules/compass-mixins/lib/compass/css3";
 
 $color-gray: #d1d1d1;
@@ -82,7 +82,7 @@ a {
   width: 100%;
   padding: 0 50px;
   color: #fff;
-  // background-color: $theme-color;
+  //background-color: $theme-color;
   overflow: hidden;
   @media screen and (max-width: 720px) {
     padding: 25px 20px;
@@ -218,18 +218,19 @@ a {
   }
   .content-left,
   .content-right {
-    // width: 50%;
+    //width: 50%;
     @media screen and (max-width: 1024px) {
       width: 100%;
     }
+  }/**
+  .content-left {
+  float: left;
   }
-  // .content-left {
-  //   float: left;
-  // }
 
-  // .content-right {
-  //   float: right;
-  // }
+  .content-right {
+  float: right;
+  }
+  */
   section {
     overflow: hidden;
     padding: 10px 15px;
@@ -301,11 +302,15 @@ a {
     min-width: 300px;
     margin: 0 auto;
     padding: 5px 10px;
-    //@include border-radius(32px);
+    /**
+    @include border-radius(32px);
+    */
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    //background-color: #d1d1d1;
+        /**
+    background-color: #d1d1d1;
+        */
   }
   .section-list {
     padding: 10px 0 5px;
@@ -358,9 +363,9 @@ a {
     }
     strong {
       font-family: $font-family;
-      // font-size: 15px;
+      //font-size: 15px;
      font-weight: bold;
-      // background-color: #f6f6f6;
+      //background-color: #f6f6f6;
     }
   }
   .practice {

@@ -1,56 +1,58 @@
-const path = require('path');
-const { WebPlugin } = require('web-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-
-module.exports = {
-  output: {
-    publicPath: '/',
-    filename: '[name].js',
-  },
-  resolve: {
-    // 加快搜索速度
-    modules: [path.resolve(__dirname, 'node_modules')],
-    // es tree-shaking
-    mainFields: ['jsnext:main', 'browser', 'main'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        }),
-        include: path.resolve(__dirname, 'src')
-      },
-      {
-        test: /\.css$/,
-        // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-        }),
-      },
-      {
-        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
-        loader: 'base64-inline-loader',
-      },
-    ]
-  },
-  entry: {
-    main: './src/main.js',
-  },
-  plugins: [
-    new WebPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-    }),
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      allChunks: true,
-    }),
-  ],
-  devtool: 'source-map',
+const path = require('path');  
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 修改为 html-webpack-plugin  
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 添加 mini-css-extract-plugin  
+  
+module.exports = {  
+  mode:'development',
+  output: {  
+    publicPath: '/',  
+    filename: '[name].js',  
+  },  
+  resolve: {  
+    modules: ['node_modules'],  
+    mainFields: ['module', 'jsnext:main', 'browser', 'main'], // 修改 mainFields 的顺序  
+  },  
+  module: {  
+    rules: [  
+      {  
+        test: /\.scss$/,  
+        use: [  
+          MiniCssExtractPlugin.loader, // 替换为 mini-css-extract-plugin
+          "style-loader",  
+          'css-loader',
+          'sass-loader'  
+        ],  
+        include: path.resolve(__dirname, 'src')  
+      },  
+      {  
+        test: /\.css$/,  
+        use: [MiniCssExtractPlugin.loader, 'css-loader'], // 替换为 mini-css-extract-plugin  
+      },  
+      {  
+        test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,  
+        // 你可以考虑使用 url-loader  
+        use: [  
+          {  
+            loader: 'url-loader',  
+            options: {  
+              limit: 8192, // 小于8kb的图片转为base64  
+            },  
+          },  
+        ],  
+      },  
+    ]  
+  },  
+  entry: {  
+    main: './src/main.js',  
+  },  
+  plugins: [  
+    new HtmlWebpackPlugin({ // 修改为 HtmlWebpackPlugin  
+      template: './src/index.html',  
+      filename: 'index.html',  
+    }),  
+    new MiniCssExtractPlugin({  
+      filename: '[name].css',  
+    }),  
+  ],  
+  devtool: 'source-map',  
 };
