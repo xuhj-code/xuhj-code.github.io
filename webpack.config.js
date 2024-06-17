@@ -18,7 +18,6 @@ module.exports = {
         test: /\.scss$/,  
         use: [  
           MiniCssExtractPlugin.loader, // 替换为 mini-css-extract-plugin
-          "style-loader",  
           'css-loader',
           'sass-loader'  
         ],  
