@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.lit402.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="伪代码简介伪代码(Pseudo code)是一种介于计算机语言和自然语言间的文字和符号，是表达算法的简单而有效的方法。伪代码不需要关注底层是如何实现的，本身就是算法框架的逻辑模型。相比程序语言 (例如Java,C&#x2F;C++等等) 它是不标准的语言。但它可以将整个算法运行过程的结构用接近自然语言的形式(可以使用任何一种你熟悉的文字，关键是把程序的意思表达出来) 描述出来。 伪代码的主要注意点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机伪代码">
+<meta property="og:url" content="http://blog.lit402.top/2024/07/03/hello-world/index.html">
+<meta property="og:site_name" content="小红叔de博客｜Harukong&#39;Blog">
+<meta property="og:description" content="伪代码简介伪代码(Pseudo code)是一种介于计算机语言和自然语言间的文字和符号，是表达算法的简单而有效的方法。伪代码不需要关注底层是如何实现的，本身就是算法框架的逻辑模型。相比程序语言 (例如Java,C&#x2F;C++等等) 它是不标准的语言。但它可以将整个算法运行过程的结构用接近自然语言的形式(可以使用任何一种你熟悉的文字，关键是把程序的意思表达出来) 描述出来。 伪代码的主要注意点">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-03T05:01:38.047Z">
+<meta property="article:modified_time" content="2024-07-03T05:06:03.531Z">
+<meta property="article:author" content="Harukong">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.lit402.top/2024/07/03/hello-world/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机伪代码 | 小红叔de博客｜Harukong'Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小红叔de博客｜Harukong'Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.lit402.top/2024/07/03/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Harukong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客｜Harukong'Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机伪代码
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-03 13:01:38 / 修改时间：13:06:03" itemprop="dateCreated datePublished" datetime="2024-07-03T13:01:38+08:00">2024-07-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="伪代码简介"><a href="#伪代码简介" class="headerlink" title="伪代码简介"></a>伪代码简介</h3><p>伪代码(Pseudo code)是一种介于计算机语言和自然语言间的文字和符号，是表达算法的简单而有效的方法。伪代码不需要关注底层是如何实现的，本身就是算法框架的逻辑模型。<br>相比程序语言 (例如Java,C&#x2F;C++等等) 它是不标准的语言。但它可以将整个算法运行过程的结构用接近自然语言的形式(可以使用任何一种你熟悉的文字，关键是把程序的意思表达出来) 描述出来。</p>
+<h3 id="伪代码的主要注意点"><a href="#伪代码的主要注意点" class="headerlink" title="伪代码的主要注意点"></a>伪代码的主要注意点</h3><h4 id="每条指令占一行，指令后不跟任何符号"><a href="#每条指令占一行，指令后不跟任何符号" class="headerlink" title="每条指令占一行，指令后不跟任何符号;"></a>每条指令占一行，指令后不跟任何符号;</h4><h4 id="用缩进表示程序中的分支、循环程序结构-若if，while，for等语句中如有多个子语句可使用-；"><a href="#用缩进表示程序中的分支、循环程序结构-若if，while，for等语句中如有多个子语句可使用-；" class="headerlink" title="用缩进表示程序中的分支、循环程序结构(若if，while，for等语句中如有多个子语句可使用[})；"></a>用缩进表示程序中的分支、循环程序结构(若if，while，for等语句中如有多个子语句可使用[})；</h4><h4 id="注释用“-”表示"><a href="#注释用“-”表示" class="headerlink" title="注释用“&#x2F;&#x2F;”表示"></a>注释用“&#x2F;&#x2F;”表示</h4><h3 id="伪代码的“语句规范”"><a href="#伪代码的“语句规范”" class="headerlink" title="伪代码的“语句规范”"></a>伪代码的“语句规范”</h3><h2 id="开始与结束"><a href="#开始与结束" class="headerlink" title="开始与结束"></a>开始与结束</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开始: 用BEGIN表示算法开始</span><br><span class="line">结束: 用END表示算法结束</span><br></pre></td></tr></table></figure>
+
+<h2 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">赋值号A &lt;- B//表示将B的值赋值给A；</span><br><span class="line">相当于C语言中的: A = B，其中定义变量的语句可以不用写出来，但必须在注释中给出，如: </span><br><span class="line">a &lt;- 5 //这里的a表示整形变量</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用[]来表示数组: al1...10]、a[10]、 a[1]...a[10]</span><br><span class="line">a &lt;-&gt; b //表示a跟b的内容进行交换</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p>当算法需要输入的时候，我们通常用Input；当算法需要输出的时候，我们通常用Output或用Print；像输入数据、输出结果写在开头，中间写算法主体的伪代码，里面用Return返回结果。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: 使用Input: 如: intput parameters A，B</span><br><span class="line">intput parameters A[]//数组</span><br><span class="line">输出: 使用Output (或Print) :如: Output A，B，result</span><br><span class="line">返回值: 使用Return</span><br></pre></td></tr></table></figure>
+
+<h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><p>条件语句和我们C语言的用法有点相似，用if else表达分支，里面可以嵌套很多的if else，需要注意的是if后面需要跟上then而is后面不用跟then，最后用end结束分支。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if A</span><br><span class="line">  then B</span><br><span class="line">  else C</span><br><span class="line">end if</span><br></pre></td></tr></table></figure>
+
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>循环语句和我们C语言的用法也是相似的，一般用两种循环语句for和while，for和while最面最好跟上do还有结束符号end。</p>
+<h4 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>-&gt;i=N <span class="comment">//也可以使用for i=1 to i=N，for i 1 to N</span></span><br><span class="line">  <span class="keyword">do</span> sentences</span><br><span class="line">end <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-while循环"><a href="#2-while循环" class="headerlink" title="2. while循环"></a>2. while循环</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> A</span><br><span class="line">  <span class="keyword">do</span> sentences</span><br><span class="line">end <span class="keyword">while</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="伪代码和代码的区别"><a href="#伪代码和代码的区别" class="headerlink" title="伪代码和代码的区别"></a>伪代码和代码的区别</h3><h4 id="求出两个不全为0的非负数整数的最大公约数的伪代码和代码"><a href="#求出两个不全为0的非负数整数的最大公约数的伪代码和代码" class="headerlink" title="求出两个不全为0的非负数整数的最大公约数的伪代码和代码"></a>求出两个不全为0的非负数整数的最大公约数的伪代码和代码</h4><p>  下列代码定义了三个变量，如果n不为0则一直做下面的循环，m和n取余结果赋值给r；原来的除数n作为被除数；余数r作为除数；一直循环直到余数为0，返回m的值。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> m,n,r;</span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</span><br><span class="line">    r = m%n;</span><br><span class="line">    m = n;</span><br><span class="line">    n = r</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> m;</span><br></pre></td></tr></table></figure>
+
+<h5 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h5><p>  下列伪代码先写BEGIN和END，这里需要输入两个数，可以不去定义它们的类型，可以在注释里面说一下。下面用一个while循环，形式跟代码里面的结构是一样的，只是符号变了一下，也不用花括号了，最后结束循环输出m的值。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">BEGIN</span><br><span class="line">input n,m //这里的n,m是整型变量</span><br><span class="line">while n≠0</span><br><span class="line">      do</span><br><span class="line">      r &lt;- m mode n</span><br><span class="line">      m &lt;- n</span><br><span class="line">      n &lt;- r</span><br><span class="line">end while</span><br><span class="line">output m</span><br><span class="line">END     </span><br></pre></td></tr></table></figure>
+
+<p>上面的算法是著名的欧几里得算法，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fromtitle=%E8%BE%97%E9%99%A4%E6%B3%95&fromid=5124765">算法简介链接</a></p>
+<h3 id="进阶说明"><a href="#进阶说明" class="headerlink" title="进阶说明"></a>进阶说明</h3><p>  遇到复杂的算法、函数功能，不知道怎么用代码表示时，可以用自然语言描述，或在注释中说明。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h5 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h5><p>  公共自行车是城市公共通的重要组成部分，解决公共交通最后一公里的问题。公共自行车运营管里系统可以完成借车、还车、信息查询等功能。<br>  假设“还车”功能的主要流程为：1、将自行车推入锁止器；2、锁止器读取车号，并提示刷卡;3、用户刷卡；4、系统读取卡片中的借车信息；5、系统计算还车时间，判断是否超过1小时;若超过1小时，则从卡中扣除1元，否则不扣除费用；6、系统更新还车信息到数据中心；7、系统语音提示还车成功。<br>  请给出该系统“还车”功能的伪代码。</p>
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><p>  这道题要求给出该系统“还车”功能的伪代码，还车一共7个步骤，显然没有办法使用代码来描述整个流程，因为题目中没有给我们任何代码相关的信息。这个时候我们就可以用自然语言，也就是用文字去描述这个流程。首先把题目中所有的流程列在左边对照着来写</p>
+<table>
+<thead>
+<tr>
+<th align="left">流程描述</th>
+<th>伪代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1、将自行车推入锁止器；</td>
+<td>BEGIN IF 自行车推入锁止器 ELSE 还车失败</td>
+</tr>
+<tr>
+<td align="left">2、锁止器读取车号，并提示刷卡;</td>
+<td>THEN 读取车号 提示刷卡</td>
+</tr>
+<tr>
+<td align="left">3、用户刷卡；</td>
+<td>IF 用户刷卡</td>
+</tr>
+<tr>
+<td align="left">4、系统读取卡片中的借车信息；</td>
+<td>THEN 读取卡片中的借车信息</td>
+</tr>
+<tr>
+<td align="left">5、系统计算还车时间，判断是否超过1小时;</td>
+<td>计算还车时间</td>
+</tr>
+<tr>
+<td align="left">若超过1小时，则从卡中扣除1元，否则不扣除费用；</td>
+<td>IF 超过1小时 THEN  扣除1元 ELSE 不扣钱</td>
+</tr>
+<tr>
+<td align="left">6、系统更新还车信息到数据中心；</td>
+<td>【可写可不写】</td>
+</tr>
+<tr>
+<td align="left">7、系统语音提示还车成功；</td>
+<td>提示还车成功</td>
+</tr>
+</tbody></table>
+<p>  我们写伪代码的初衷是把程序的意思表达出来，无关紧要的细节可以省略掉。<br>  伪代码不是代码的具体实现，必然会存在瑕疵或者说缺少一些细节，如果说要把所有的情况都写出来，试卷都不一定写的下，非常的繁琐，也违背了我们写伪代码的初衷。<br>伪代码格式化一下如下所示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BEGIN </span><br><span class="line">IF 自行车推入锁止器</span><br><span class="line">  THEN</span><br><span class="line">    读取车号</span><br><span class="line">    提示刷卡</span><br><span class="line">    IF 用户刷卡</span><br><span class="line">      THEN </span><br><span class="line">        读取卡片中的借车信息</span><br><span class="line">        计算还车时间</span><br><span class="line">          IF 超过1小时</span><br><span class="line">            THEN</span><br><span class="line">              扣除1元</span><br><span class="line">          ELSE 不扣钱</span><br><span class="line">        提示还车成功</span><br><span class="line">    ELSE 还车失败</span><br><span class="line">ELSE 还车失败</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结-如何写好伪代码"><a href="#总结-如何写好伪代码" class="headerlink" title="总结:如何写好伪代码?"></a>总结:如何写好伪代码?</h3><h4 id="1、首先写下这个题目所有的流程-可以用流程图表示或者自然语言表示"><a href="#1、首先写下这个题目所有的流程-可以用流程图表示或者自然语言表示" class="headerlink" title="1、首先写下这个题目所有的流程 (可以用流程图表示或者自然语言表示)"></a>1、首先写下这个题目所有的流程 (可以用流程图表示或者自然语言表示)</h4><h4 id="2、使用标准的编程结构，比如-if后面一定要有else"><a href="#2、使用标准的编程结构，比如-if后面一定要有else" class="headerlink" title="2、使用标准的编程结构，比如: if后面一定要有else"></a>2、使用标准的编程结构，比如: if后面一定要有else</h4><h4 id="3、每行只写一条语句-清晰、合理"><a href="#3、每行只写一条语句-清晰、合理" class="headerlink" title="3、每行只写一条语句 (清晰、合理)"></a>3、每行只写一条语句 (清晰、合理)</h4><h4 id="4、while循环和for循环里的循环体一定要空格写"><a href="#4、while循环和for循环里的循环体一定要空格写" class="headerlink" title="4、while循环和for循环里的循环体一定要空格写"></a>4、while循环和for循环里的循环体一定要空格写</h4><h4 id="5、关键字尽量大写-如-IF-ELSE，可以又更好的区分"><a href="#5、关键字尽量大写-如-IF-ELSE，可以又更好的区分" class="headerlink" title="5、关键字尽量大写 如: IF ELSE，可以又更好的区分"></a>5、关键字尽量大写 如: IF ELSE，可以又更好的区分</h4><h4 id="6、复杂的功能，使用简单的关键词和自然语言辅助描述"><a href="#6、复杂的功能，使用简单的关键词和自然语言辅助描述" class="headerlink" title="6、复杂的功能，使用简单的关键词和自然语言辅助描述"></a>6、复杂的功能，使用简单的关键词和自然语言辅助描述</h4><h4 id="7、所有的内容都要描述清楚"><a href="#7、所有的内容都要描述清楚" class="headerlink" title="7、所有的内容都要描述清楚"></a>7、所有的内容都要描述清楚</h4>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">伪代码简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%9A%84%E4%B8%BB%E8%A6%81%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">伪代码的主要注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%8F%E6%9D%A1%E6%8C%87%E4%BB%A4%E5%8D%A0%E4%B8%80%E8%A1%8C%EF%BC%8C%E6%8C%87%E4%BB%A4%E5%90%8E%E4%B8%8D%E8%B7%9F%E4%BB%BB%E4%BD%95%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.1.</span> <span class="nav-text">每条指令占一行，指令后不跟任何符号;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E7%BC%A9%E8%BF%9B%E8%A1%A8%E7%A4%BA%E7%A8%8B%E5%BA%8F%E4%B8%AD%E7%9A%84%E5%88%86%E6%94%AF%E3%80%81%E5%BE%AA%E7%8E%AF%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84-%E8%8B%A5if%EF%BC%8Cwhile%EF%BC%8Cfor%E7%AD%89%E8%AF%AD%E5%8F%A5%E4%B8%AD%E5%A6%82%E6%9C%89%E5%A4%9A%E4%B8%AA%E5%AD%90%E8%AF%AD%E5%8F%A5%E5%8F%AF%E4%BD%BF%E7%94%A8-%EF%BC%9B"><span class="nav-number">2.2.</span> <span class="nav-text">用缩进表示程序中的分支、循环程序结构(若if，while，for等语句中如有多个子语句可使用[})；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%E7%94%A8%E2%80%9C-%E2%80%9D%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.3.</span> <span class="nav-text">注释用“&#x2F;&#x2F;”表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%9A%84%E2%80%9C%E8%AF%AD%E5%8F%A5%E8%A7%84%E8%8C%83%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">伪代码的“语句规范”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%B8%8E%E7%BB%93%E6%9D%9F"><span class="nav-number"></span> <span class="nav-text">开始与结束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5"><span class="nav-number"></span> <span class="nav-text">赋值语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number"></span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number"></span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number"></span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number"></span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-for%E5%BE%AA%E7%8E%AF"><span class="nav-number">0.1.</span> <span class="nav-text">1. for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-while%E5%BE%AA%E7%8E%AF"><span class="nav-number">0.2.</span> <span class="nav-text">2. while循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E5%92%8C%E4%BB%A3%E7%A0%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">伪代码和代码的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E5%87%BA%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%85%A8%E4%B8%BA0%E7%9A%84%E9%9D%9E%E8%B4%9F%E6%95%B0%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81%E5%92%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">求出两个不全为0的非负数整数的最大公约数的伪代码和代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">伪代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">进阶说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number"></span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">0.0.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">0.0.2.</span> <span class="nav-text">分析：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">总结:如何写好伪代码?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E9%A6%96%E5%85%88%E5%86%99%E4%B8%8B%E8%BF%99%E4%B8%AA%E9%A2%98%E7%9B%AE%E6%89%80%E6%9C%89%E7%9A%84%E6%B5%81%E7%A8%8B-%E5%8F%AF%E4%BB%A5%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A1%A8%E7%A4%BA%E6%88%96%E8%80%85%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">1、首先写下这个题目所有的流程 (可以用流程图表示或者自然语言表示)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E6%A0%87%E5%87%86%E7%9A%84%E7%BC%96%E7%A8%8B%E7%BB%93%E6%9E%84%EF%BC%8C%E6%AF%94%E5%A6%82-if%E5%90%8E%E9%9D%A2%E4%B8%80%E5%AE%9A%E8%A6%81%E6%9C%89else"><span class="nav-number">1.2.</span> <span class="nav-text">2、使用标准的编程结构，比如: if后面一定要有else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E6%AF%8F%E8%A1%8C%E5%8F%AA%E5%86%99%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5-%E6%B8%85%E6%99%B0%E3%80%81%E5%90%88%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">3、每行只写一条语句 (清晰、合理)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81while%E5%BE%AA%E7%8E%AF%E5%92%8Cfor%E5%BE%AA%E7%8E%AF%E9%87%8C%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BD%93%E4%B8%80%E5%AE%9A%E8%A6%81%E7%A9%BA%E6%A0%BC%E5%86%99"><span class="nav-number">1.4.</span> <span class="nav-text">4、while循环和for循环里的循环体一定要空格写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%B0%BD%E9%87%8F%E5%A4%A7%E5%86%99-%E5%A6%82-IF-ELSE%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%88%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%8C%BA%E5%88%86"><span class="nav-number">1.5.</span> <span class="nav-text">5、关键字尽量大写 如: IF ELSE，可以又更好的区分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81%E5%A4%8D%E6%9D%82%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8D%E5%92%8C%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E8%BE%85%E5%8A%A9%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.6.</span> <span class="nav-text">6、复杂的功能，使用简单的关键词和自然语言辅助描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%E3%80%81%E6%89%80%E6%9C%89%E7%9A%84%E5%86%85%E5%AE%B9%E9%83%BD%E8%A6%81%E6%8F%8F%E8%BF%B0%E6%B8%85%E6%A5%9A"><span class="nav-number">1.7.</span> <span class="nav-text">7、所有的内容都要描述清楚</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Harukong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Harukong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
