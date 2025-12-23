@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="位置规律 · 核心速览   位置规律 相邻比较 旋转翻转    平移方向 + 步数，16 宫格内外分开 找不动元素，其余只换位置 顺逆时针角度 + 翻转轴      九宫格规律 16 宫格 25 宫格与蜂窝    等差 &#x2F; 恒定 &#x2F; 周期，横向优先 内外分离，重点内部递增 斜向整体运动，大面积定位      非宫格难点 解题技巧 心理建设    隐藏线条、拆分运动 大面积 →">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图形推理-位置与样式">
+<meta property="og:url" content="https://blog.lit402.top/2025/12/23/2025/1%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%B7%E5%BC%8F/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="位置规律 · 核心速览   位置规律 相邻比较 旋转翻转    平移方向 + 步数，16 宫格内外分开 找不动元素，其余只换位置 顺逆时针角度 + 翻转轴      九宫格规律 16 宫格 25 宫格与蜂窝    等差 &#x2F; 恒定 &#x2F; 周期，横向优先 内外分离，重点内部递增 斜向整体运动，大面积定位      非宫格难点 解题技巧 心理建设    隐藏线条、拆分运动 大面积 →">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-22T16:01:02.000Z">
+<meta property="article:modified_time" content="2025-12-23T11:21:59.669Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="位置规律与相邻比较">
+<meta property="article:tag" content="属性规律与图形关系">
+<meta property="article:tag" content="样式规律与标记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2025/12/23/2025/1%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%B7%E5%BC%8F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2025/12/23/2025/1%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%B7%E5%BC%8F/","path":"2025/12/23/2025/1图形推理-位置与样式/","title":"图形推理-位置与样式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>图形推理-位置与样式 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E8%A7%84%E5%BE%8B-%C2%B7-%E6%A0%B8%E5%BF%83%E9%80%9F%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">位置规律 · 核心速览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E8%A7%84%E5%BE%8B-%C2%B7-%E6%A0%B8%E5%BF%83%E9%80%9F%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">样式规律 · 核心速览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E8%A7%84%E5%BE%8B-%C2%B7-%E6%A0%B8%E5%BF%83%E9%80%9F%E8%A7%88"><span class="nav-number">3.</span> <span class="nav-text">属性规律 · 核心速览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E8%A7%84%E5%BE%8B-%C2%B7-%E6%80%BB%E8%A7%88%E9%80%9F%E8%A7%88%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">位置规律 · 总览速览表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E8%A7%84%E5%BE%8B-%C2%B7-%E6%80%BB%E8%A7%88%E9%80%9F%E8%A7%88%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">样式规律 · 总览速览表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E8%A7%84%E5%BE%8B-%C2%B7-%E6%80%BB%E8%A7%88%E9%80%9F%E8%A7%88%E8%A1%A8"><span class="nav-number">6.</span> <span class="nav-text">属性规律 · 总览速览表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2025/12/23/2025/1%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%B7%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="图形推理-位置与样式 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          图形推理-位置与样式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-12-23 00:01:02 / 修改时间：19:21:59" itemprop="dateCreated datePublished" datetime="2025-12-23T00:01:02+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">判断推理</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">图形推理</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%A0%B7%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">位置与样式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<h1 id="位置规律-·-核心速览"><a href="#位置规律-·-核心速览" class="headerlink" title="位置规律 · 核心速览"></a>位置规律 · 核心速览</h1><table>
+<thead>
+<tr>
+<th>位置规律</th>
+<th>相邻比较</th>
+<th>旋转翻转</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>平移方向 + 步数，16 宫格内外分开</td>
+<td>找不动元素，其余只换位置</td>
+<td>顺逆时针角度 + 翻转轴</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>九宫格规律</th>
+<th>16 宫格</th>
+<th>25 宫格与蜂窝</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>等差 &#x2F; 恒定 &#x2F; 周期，横向优先</td>
+<td>内外分离，重点内部递增</td>
+<td>斜向整体运动，大面积定位</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>非宫格难点</th>
+<th>解题技巧</th>
+<th>心理建设</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>隐藏线条、拆分运动</td>
+<td>大面积 → 个数 → 对比</td>
+<td>难题跳过，70% 即高分</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="样式规律-·-核心速览"><a href="#样式规律-·-核心速览" class="headerlink" title="样式规律 · 核心速览"></a>样式规律 · 核心速览</h1><table>
+<thead>
+<tr>
+<th>样式规律</th>
+<th>黑白运算</th>
+<th>标记考点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>部分相同元素做运算，加减 &#x2F; 求同 &#x2F; 求异（高频求异）</td>
+<td>外框相同看黑块变化，相同区域秒杀优先</td>
+<td>点 &#x2F; 线 &#x2F; 角 &#x2F; 面，关注标记位置与关系</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>动态样式</th>
+<th>拆分思维</th>
+<th>金字塔运算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>先旋转再运算，一三同转二 &#x2F; 二三同转一</td>
+<td>不同区域不同规则，上下或内外分开</td>
+<td>下层两元素决定上层一元素</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="属性规律-·-核心速览"><a href="#属性规律-·-核心速览" class="headerlink" title="属性规律 · 核心速览"></a>属性规律 · 核心速览</h1><table>
+<thead>
+<tr>
+<th>对称性</th>
+<th>曲直性</th>
+<th>开闭性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>看对称轴方向与数量，区分轴 &#x2F; 中心 &#x2F; 轴+中心</td>
+<td>用 1&#x2F;2、2&#x2F;3 比例定位，判断是否含曲线</td>
+<td>生活化优先：全开 &#x2F; 半开 &#x2F; 全闭（点连接也算开）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>图形间关系</th>
+<th>黑白块专项</th>
+<th>最新趋势</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单看相交点线面，复杂找共同部分 + 差异</td>
+<td>顺序：对称性 ＞ 位置规律 ＞ 黑白运算</td>
+<td>不看整体，看未相交部分或相交线位置</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<hr>
+<h1 id="位置规律-·-总览速览表"><a href="#位置规律-·-总览速览表" class="headerlink" title="位置规律 · 总览速览表"></a>位置规律 · 总览速览表</h1><table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>核心内容</th>
+<th>考试重点 &#x2F; 易混淆点</th>
+<th>难度系数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置规律</td>
+<td>通过元素个数相同或部分重叠判定位置规律，优先考虑平移方向（横向 &#x2F; 纵向 &#x2F; 斜向）和步数</td>
+<td>16 宫格内外分开看是高频考点，注意内部相等或递增规律</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>相邻比较</td>
+<td>存在不动元素（如大面积黑块），动态元素改变位置即可，无需分析具体轨迹</td>
+<td>易与位置规律混淆，关键区分是否有元素保持不动</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>旋转翻转</td>
+<td>旋转分顺时针 &#x2F; 逆时针（常见 45° &#x2F; 90° &#x2F; 180°），翻转分左右 &#x2F; 上下（对称轴变化）</td>
+<td>箭头法 &#x2F; 时针法快速判定分组，需保持作图标准一致</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>九宫格规律</td>
+<td>等差、恒定、周期三种出题偏好，横向为主，纵向和米字型较少出现</td>
+<td>周期规律易被忽略，需注意交替变化</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>16 宫格高频考法</td>
+<td>内部相等时内外分开分析运动轨迹，近年创新递增规律（如蜗牛运动轨迹保留）</td>
+<td>内部递增是 25 年新趋势，需重点掌握</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>25 宫格与蜂窝</td>
+<td>斜向运动为主，整体运动需通过大面积区域定位，边缘地带优先观察</td>
+<td>斜向运动空间大，难度高于 16 宫格</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>非宫格类难点</td>
+<td>隐藏线条（三角形 &#x2F; 正方形 &#x2F; 菱形框架）或拆分多部分运动，需就近原则找特殊</td>
+<td>线条类题目需区分端点、焦点、十字交点</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>解题技巧</td>
+<td>大面积优先、个数统计、就近假设、拆分思维、对比选项找差异</td>
+<td>动态题先分析不动部分再验证变化部分</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>心理建设</td>
+<td>允许出错，难题需标记后跳，图推每年创新，理解出题逻辑比刷题更重要</td>
+<td>70% 正确率即为高分，避免焦虑</td>
+<td>⭐</td>
+</tr>
+</tbody></table>
+<p><strong>使用顺序建议</strong>：<br>先判是否为宫格 → 再找不动元素 → 最后验证运动方式</p>
+<hr>
+<h1 id="样式规律-·-总览速览表"><a href="#样式规律-·-总览速览表" class="headerlink" title="样式规律 · 总览速览表"></a>样式规律 · 总览速览表</h1><table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>核心内容</th>
+<th>考试重点 &#x2F; 易混淆点</th>
+<th>难度系数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>样式规律</td>
+<td>部分相同元素的运算关系（加 &#x2F; 减 &#x2F; 同 &#x2F; 异）</td>
+<td>区分相加 &#x2F; 相减 &#x2F; 求同 &#x2F; 求异，<strong>90% 题目考求异</strong></td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>黑白运算</td>
+<td>外框相同、黑块数量不同的运算规则</td>
+<td><strong>相同区域秒杀法</strong> vs 传统运算公式</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>标记考点</td>
+<td>点 &#x2F; 线 &#x2F; 角 &#x2F; 面的特殊标记规律</td>
+<td>标记线位置（江苏高频）、多个标记物关系</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>动态样式</td>
+<td>图形旋转后的运算处理</td>
+<td>前两图对不上需旋转<br>一三同则二转 &#x2F; 二三同则一转</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>拆分思维</td>
+<td>不同区域采用不同运算规则</td>
+<td>上海题常见：上下部分分别求同求异</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>金字塔运算</td>
+<td>多层级递减式黑白运算</td>
+<td>上海特色题：下层两个元素决定上层一个</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="属性规律-·-总览速览表"><a href="#属性规律-·-总览速览表" class="headerlink" title="属性规律 · 总览速览表"></a>属性规律 · 总览速览表</h1><table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>核心内容</th>
+<th>考试重点 &#x2F; 易混淆点</th>
+<th>难度系数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称性</td>
+<td>优先考虑对称轴方向、数量及与线 &#x2F; 面 &#x2F; 点的关系</td>
+<td>区分轴对称、中心对称、轴 + 中心对称图形</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>曲直性</td>
+<td>通过 1&#x2F;2 或 2&#x2F;3 比例定位（纯曲 &#x2F; 纯直 &#x2F; 曲直混合）</td>
+<td>联考可能不严谨，需结合有无曲线判断</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>开闭性</td>
+<td>生活化图形优先考虑，分全开 &#x2F; 半开 &#x2F; 全闭</td>
+<td>哑铃状图形属半开半分（连接处为点）</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>图形间关系</td>
+<td>简单图形考相交（点 &#x2F; 线 &#x2F; 面），复杂图形考共同 + 复杂部分关联</td>
+<td>订书机题：考首尾线与中间线位置关系</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>黑白块专项</td>
+<td>对称性 ＞ 位置规律 ＞ 黑白运算；1 黑 + 多白优先图形关系</td>
+<td>黑面与外框线数量、白面连通性、黑白面相交线数</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>最新趋势</td>
+<td>浙江题考未相交部分形状，国考题考相交线位置标记</td>
+<td>母题变形（如碰外框 → 碰 1 条 &#x2F; 2 条线）</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%8D%E7%BD%AE%E8%A7%84%E5%BE%8B%E4%B8%8E%E7%9B%B8%E9%82%BB%E6%AF%94%E8%BE%83/" rel="tag"># 位置规律与相邻比较</a>
+              <a href="/tags/%E6%A0%B7%E5%BC%8F%E8%A7%84%E5%BE%8B%E4%B8%8E%E6%A0%87%E8%AE%B0/" rel="tag"># 样式规律与标记</a>
+              <a href="/tags/%E5%B1%9E%E6%80%A7%E8%A7%84%E5%BE%8B%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%85%B3%E7%B3%BB/" rel="tag"># 属性规律与图形关系</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/20/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86-%E5%BF%85%E7%84%B6%E6%80%A7%E6%8E%A8%E7%90%86-%E6%80%BB%E8%A7%88/" rel="prev" title="必然性推理｜考场判断总览">
+                  <i class="fa fa-angle-left"></i> 必然性推理｜考场判断总览
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/12/23/2025/2%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E6%95%B0%E9%87%8F%E8%A7%84%E5%BE%8B/" rel="next" title="图形推理-数量规律">
+                  图形推理-数量规律 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
