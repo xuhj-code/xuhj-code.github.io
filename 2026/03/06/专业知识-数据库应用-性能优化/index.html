@@ -20,35 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="3+3 - 思维导图缩略版 黑白块 汉字 完整版">
+    <meta name="description" content="优化维度 核心策略 关键操作    I&#x2F;O 资源优化 💽 分离存储，避免 I&#x2F;O 争抢 将数据文件与日志文件放在不同物理磁盘；避免单分区集中存储所有文件   服务器资源优化 🖥️ 独占核心资源 关闭数据库服务器上无关服务，避免 CPU、内存、磁盘被抢占   表结构优化 📊 大表拆分，降低扫描范围 水平分表（按字段拆分数据）；垂直分表（拆分不常用字段）   SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图形推理-总结">
-<meta property="og:url" content="https://blog.lit402.top/2025/12/01/2025/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="专业知识-数据库应用-性能优化">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/06/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="小红叔de博客">
-<meta property="og:description" content="3+3 - 思维导图缩略版 黑白块 汉字 完整版">
+<meta property="og:description" content="优化维度 核心策略 关键操作    I&#x2F;O 资源优化 💽 分离存储，避免 I&#x2F;O 争抢 将数据文件与日志文件放在不同物理磁盘；避免单分区集中存储所有文件   服务器资源优化 🖥️ 独占核心资源 关闭数据库服务器上无关服务，避免 CPU、内存、磁盘被抢占   表结构优化 📊 大表拆分，降低扫描范围 水平分表（按字段拆分数据）；垂直分表（拆分不常用字段）   SQL">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.lit402.top/img/t1.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t2.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t3.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t4.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t1.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t2.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t3.png">
-<meta property="og:image" content="https://blog.lit402.top/img/t4.png">
-<meta property="article:published_time" content="2025-11-30T16:01:02.000Z">
-<meta property="article:modified_time" content="2026-02-26T06:27:28.663Z">
+<meta property="og:image" content="https://blog.lit402.top/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E7%B1%BB%E6%96%B9%E6%B3%95.jpg">
+<meta property="article:published_time" content="2026-03-06T10:42:49.000Z">
+<meta property="article:modified_time" content="2026-03-07T16:50:44.802Z">
 <meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="分表分库">
+<meta property="article:tag" content="性能优化">
+<meta property="article:tag" content="索引">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.lit402.top/img/t1.png">
+<meta name="twitter:image" content="https://blog.lit402.top/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E7%B1%BB%E6%96%B9%E6%B3%95.jpg">
 
 
-<link rel="canonical" href="https://blog.lit402.top/2025/12/01/2025/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E6%80%BB%E7%BB%93/">
+<link rel="canonical" href="https://blog.lit402.top/2026/03/06/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2025/12/01/2025/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E6%80%BB%E7%BB%93/","path":"2025/12/01/2025/0图形推理-总结/","title":"图形推理-总结"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/06/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/","path":"2026/03/06/专业知识-数据库应用-性能优化/","title":"专业知识-数据库应用-性能优化"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>图形推理-总结 | 小红叔de博客</title>
+<title>专业知识-数据库应用-性能优化 | 小红叔de博客</title>
   
 
 
@@ -167,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-3-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">3+3 - 思维导图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%95%A5%E7%89%88"><span class="nav-number">1.1.</span> <span class="nav-text">缩略版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E7%99%BD%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">黑白块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E5%AD%97"><span class="nav-number">1.3.</span> <span class="nav-text">汉字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E7%89%88"><span class="nav-number">1.4.</span> <span class="nav-text">完整版</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81I-O-%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96-%F0%9F%92%BD"><span class="nav-number">1.</span> <span class="nav-text">一、I&#x2F;O 资源优化 💽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96-%F0%9F%96%A5%EF%B8%8F"><span class="nav-number">2.</span> <span class="nav-text">二、服务器资源优化 🖥️</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%A1%A8%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96-%F0%9F%93%8A"><span class="nav-number">3.</span> <span class="nav-text">三、表结构优化 📊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81SQL-%E4%B8%8E%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96-%F0%9F%9A%80"><span class="nav-number">4.</span> <span class="nav-text">四、SQL 与索引优化 🚀</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,16 +177,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -216,7 +213,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2025/12/01/2025/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86-%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/06/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,12 +226,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="图形推理-总结 | 小红叔de博客">
+      <meta itemprop="name" content="专业知识-数据库应用-性能优化 | 小红叔de博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          图形推理-总结
+          专业知识-数据库应用-性能优化
         </h1>
 
         <div class="post-meta-container">
@@ -245,14 +242,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-12-01 00:01:02" itemprop="dateCreated datePublished" datetime="2025-12-01T00:01:02+08:00">2025-12-01</time>
+      <time title="创建时间：2026-03-06 18:42:49" itemprop="dateCreated datePublished" datetime="2026-03-06T18:42:49+08:00">2026-03-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-02-26 14:27:28" itemprop="dateModified" datetime="2026-02-26T14:27:28+08:00">2026-02-26</time>
+      <time title="修改时间：2026-03-08 00:50:44" itemprop="dateModified" datetime="2026-03-08T00:50:44+08:00">2026-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,11 +257,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">判断推理</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">图形推理</span></a>
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
         </span>
     </span>
 
@@ -277,15 +270,80 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><hr>
-<h1 id="3-3-思维导图"><a href="#3-3-思维导图" class="headerlink" title="3+3 - 思维导图"></a>3+3 - 思维导图</h1><h2 id="缩略版"><a href="#缩略版" class="headerlink" title="缩略版"></a>缩略版</h2><p><img src="/img/t1.png" alt="缩略版"></p>
-<h2 id="黑白块"><a href="#黑白块" class="headerlink" title="黑白块"></a>黑白块</h2><p><img src="/img/t2.png" alt="黑白块"></p>
-<h2 id="汉字"><a href="#汉字" class="headerlink" title="汉字"></a>汉字</h2><p><img src="/img/t3.png" alt="汉字"></p>
-<h2 id="完整版"><a href="#完整版" class="headerlink" title="完整版"></a>完整版</h2><p><img src="/img/t4.png" alt="完整版"></p>
-<p><img src="/img/t1.png" alt="缩略版"><br><img src="/img/t2.png" alt="黑白块"><br><img src="/img/t3.png" alt="汉字"><br><img src="/img/t4.png" alt="完整版"></p>
+    <div class="post-body" itemprop="articleBody"><p><img src="/../img/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%88%86%E7%B1%BB%E6%96%B9%E6%B3%95.jpg" alt="数据库性能优化分类方法"></p>
+<table>
+<thead>
+<tr>
+<th align="left">优化维度</th>
+<th align="left">核心策略</th>
+<th align="left">关键操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>I&#x2F;O 资源优化</strong> 💽</td>
+<td align="left">分离存储，避免 I&#x2F;O 争抢</td>
+<td align="left">将数据文件与日志文件放在不同物理磁盘；避免单分区集中存储所有文件</td>
+</tr>
+<tr>
+<td align="left"><strong>服务器资源优化</strong> 🖥️</td>
+<td align="left">独占核心资源</td>
+<td align="left">关闭数据库服务器上无关服务，避免 CPU、内存、磁盘被抢占</td>
+</tr>
+<tr>
+<td align="left"><strong>表结构优化</strong> 📊</td>
+<td align="left">大表拆分，降低扫描范围</td>
+<td align="left">水平分表（按字段拆分数据）；垂直分表（拆分不常用字段）</td>
+</tr>
+<tr>
+<td align="left"><strong>SQL 与索引优化</strong> 🚀</td>
+<td align="left">高效查询，避免全表扫描</td>
+<td align="left">为高频字段创建索引；避免 <code>SELECT *</code>；避免索引字段上使用函数</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
 
-
-
+<hr>
+<p>在高并发、大数据量的业务场景下，数据库性能往往是系统的瓶颈。本文整理了数据库性能优化的四大核心方法，帮助你系统性地提升数据库的响应速度和稳定性。</p>
+<hr>
+<h2 id="一、I-O-资源优化-💽"><a href="#一、I-O-资源优化-💽" class="headerlink" title="一、I&#x2F;O 资源优化 💽"></a>一、I&#x2F;O 资源优化 💽</h2><p>I&#x2F;O 是数据库性能的关键瓶颈之一，优化存储布局能显著提升读写效率：</p>
+<ul>
+<li><strong>分离数据与日志存储</strong>：将随机读写频繁的数据库文件（<code>.mdf</code>、<code>.ibd</code>）和顺序读写的日志文件（<code>.ldf</code>、<code>.ib_logfile</code>）存放在<strong>不同的物理分区或磁盘</strong>上。这样可以避免两者争抢 I&#x2F;O 资源，防止日志写入阻塞数据查询。</li>
+<li><strong>避免单分区集中存储</strong>：不要将所有数据库文件都放在同一个分区，防止不同类型的文件操作互相干扰，导致整体 I&#x2F;O 性能下降。</li>
+</ul>
+<hr>
+<h2 id="二、服务器资源优化-🖥️"><a href="#二、服务器资源优化-🖥️" class="headerlink" title="二、服务器资源优化 🖥️"></a>二、服务器资源优化 🖥️</h2><p>数据库服务应尽可能独占服务器资源，避免与其他应用竞争：</p>
+<ul>
+<li><strong>隔离核心服务</strong>：关闭数据库服务器上所有无关的服务和进程，如 Web 服务、定时任务等。确保 CPU、内存、磁盘带宽等核心资源都服务于数据库，避免资源被抢占。</li>
+</ul>
+<hr>
+<h2 id="三、表结构优化-📊"><a href="#三、表结构优化-📊" class="headerlink" title="三、表结构优化 📊"></a>三、表结构优化 📊</h2><p>当单表数据量达到千万级甚至亿级时，表结构本身就会成为性能瓶颈：</p>
+<ul>
+<li><strong>大表拆分</strong>：<ul>
+<li><strong>水平分表</strong>：按照某个字段（如用户 ID、时间）将一张大表的数据拆分到多张结构相同的小表中，分散数据和查询压力。</li>
+<li><strong>垂直分表</strong>：将一张大表中不常用或大文本字段拆分到单独的表中，减少单表的数据量，降低查询时的 I&#x2F;O 扫描范围。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="四、SQL-与索引优化-🚀"><a href="#四、SQL-与索引优化-🚀" class="headerlink" title="四、SQL 与索引优化 🚀"></a>四、SQL 与索引优化 🚀</h2><p>慢 SQL 和低效的索引是最常见的性能杀手，针对性优化效果立竿见现：</p>
+<ul>
+<li><strong>合理创建索引</strong>：<ul>
+<li>为高频查询、排序、关联查询的字段创建合适的索引（如 B+ 树索引）。</li>
+<li>避免创建过多或不必要的索引，因为索引会增加写入操作的开销。</li>
+</ul>
+</li>
+<li><strong>优化慢 SQL</strong>：<ul>
+<li>通过执行计划（Explain）分析慢查询，定位性能瓶颈。</li>
+<li>避免使用 <code>SELECT *</code>，只查询需要的字段，减少数据传输和内存消耗。</li>
+<li>避免索引失效，例如不在索引字段上使用函数、避免 <code>OR</code> 条件、避免前导模糊查询（<code>%abc</code>）等。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 总结：数据库性能优化是一个系统性工程，需要从存储、服务器、表结构和 SQL 语句四个层面协同发力。先通过分库分表和索引优化解决主要矛盾，再逐步细化到每一条 SQL，才能构建出高效稳定的数据层架构。</p>
+</blockquote>
+<hr>
 
     </div>
 
@@ -294,19 +352,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag"># 性能优化</a>
+              <a href="/tags/SQL/" rel="tag"># SQL</a>
+              <a href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag"># 索引</a>
+              <a href="/tags/%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/" rel="tag"># 分表分库</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/11/27/%E9%80%9F%E7%AE%97%E6%8A%80%E5%B7%A7/" rel="prev" title="资料分析速算技巧">
-                  <i class="fa fa-angle-left"></i> 资料分析速算技巧
+                <a href="/2026/03/06/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="prev" title="专业知识-数据库应用-基础概念">
+                  <i class="fa fa-angle-left"></i> 专业知识-数据库应用-基础概念
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/12/20/%F0%9F%A7%A0%F0%9F%93%9A%20%E7%86%AC%E5%A4%9C%E5%AD%A6%E4%B9%A0%20%C2%B7%20%E9%A5%AE%E9%A3%9F%E6%8F%90%E9%86%92/" rel="next" title="🧠📚 熬夜学习 · 饮食提醒">
-                  🧠📚 熬夜学习 · 饮食提醒 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
