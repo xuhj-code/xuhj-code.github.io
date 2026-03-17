@@ -173,16 +173,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -403,13 +403,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/03/16/2026/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87/" rel="prev" title="计算机硬件-常见设备">
-                  <i class="fa fa-angle-left"></i> 计算机硬件-常见设备
+                <a href="/2026/03/16/2026/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/" rel="prev" title="计算机操作系统-核心知识">
+                  <i class="fa fa-angle-left"></i> 计算机操作系统-核心知识
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/03/16/2026/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/" rel="next" title="计算机操作系统-核心知识">
-                  计算机操作系统-核心知识 <i class="fa fa-angle-right"></i>
+                <a href="/2026/03/16/2026/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B0%E6%8A%80%E6%9C%AF/" rel="next" title="计算机新技术">
+                  计算机新技术 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -439,6 +439,15 @@
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+<% if (page.mermaid){ %>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default'
+  });
+</script>
+<% } %>
     </div>
   </footer>
 
