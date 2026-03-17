@@ -60,6 +60,8 @@
 <script src="/js/third-party/search/local-search.js" defer></script>
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
 
 
 
@@ -174,17 +176,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">36</span>
-        <span class="site-state-item-name">分类</span>
+          <a href="/categories/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">74</span>
-        <span class="site-state-item-name">标签</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -448,6 +452,10 @@
 <h3 id="题型3（B类变长子网，-27掩码）"><a href="#题型3（B类变长子网，-27掩码）" class="headerlink" title="题型3（B类变长子网，&#x2F;27掩码）"></a>题型3（B类变长子网，&#x2F;27掩码）</h3><p>已知：IP&#x3D;172.20.18.95，子网掩码&#x3D;255.255.255.224<br>求：子网地址、广播地址、可用主机范围<br><strong>速算步骤</strong>：块大小&#x3D;256-224&#x3D;32 → 子网位&#x3D;95÷32取整×32&#x3D;64 → 广播位&#x3D;64+32-1&#x3D;95<br><strong>答案</strong>：子网172.20.18.64 | 广播172.20.18.95 | 主机65~94</p>
 <h3 id="题型4（B类变长子网，-20掩码）"><a href="#题型4（B类变长子网，-20掩码）" class="headerlink" title="题型4（B类变长子网，&#x2F;20掩码）"></a>题型4（B类变长子网，&#x2F;20掩码）</h3><p>已知：IP&#x3D;172.16.45.120，子网掩码&#x3D;255.255.240.0<br>求：子网地址、广播地址、可用主机范围<br><strong>速算步骤</strong>：掩码第三位非255，块大小&#x3D;256-240&#x3D;16 → 子网位&#x3D;45÷16取整×16&#x3D;32 → 广播位&#x3D;32+16-1&#x3D;47，第四位置255<br><strong>答案</strong>：子网172.16.32.0 | 广播172.16.47.255 | 主机172.16.32.1~172.16.47.254</p>
 <h3 id="题型5（A类变长子网，考试偏难题）"><a href="#题型5（A类变长子网，考试偏难题）" class="headerlink" title="题型5（A类变长子网，考试偏难题）"></a>题型5（A类变长子网，考试偏难题）</h3><p>已知：IP&#x3D;10.8.66.200，子网掩码&#x3D;255.255.192.0<br>求：子网地址、广播地址、可用主机范围<br><strong>速算步骤</strong>：掩码第三位非255，块大小&#x3D;256-192&#x3D;64 → 子网位&#x3D;66÷64取整×64&#x3D;64 → 广播位&#x3D;64+64-1&#x3D;127，第四位置255<br><strong>答案</strong>：子网10.8.64.0 | 广播10.8.127.255 | 主机10.8.64.1~10.8.127.254</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
     </div>
 
