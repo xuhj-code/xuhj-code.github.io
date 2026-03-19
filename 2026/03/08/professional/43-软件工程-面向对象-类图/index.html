@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文梳理了面向对象类图的结构、六大类间关系（依赖、关联、泛化、实现、聚合、组合），并给出装饰器模式的核心结构与代码示例，方便快速掌握面向对象建模与设计模式考点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程-面向对象-类图">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="本文梳理了面向对象类图的结构、六大类间关系（依赖、关联、泛化、实现、聚合、组合），并给出装饰器模式的核心结构与代码示例，方便快速掌握面向对象建模与设计模式考点。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-07T17:20:43.000Z">
+<meta property="article:modified_time" content="2026-03-18T14:25:48.552Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="类图">
+<meta property="article:tag" content="软件工程">
+<meta property="article:tag" content="面向对象">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/","path":"2026/03/08/professional/43-软件工程-面向对象-类图/","title":"软件工程-面向对象-类图"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>软件工程-面向对象-类图 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%8C-UML%E7%B1%BB%E5%9B%BE%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E9%80%9F%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">📌 UML类图与面向对象关系速览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%B1%BB%E5%9B%BE%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">1. 类图基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%B1%BB%E9%97%B4%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">2. 类间关系详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%A4%BA%E4%BE%8B%EF%BC%88%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">3. 设计模式示例（装饰器模式）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%A1-%E8%AE%B0%E5%BF%86%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text">💡 记忆技巧</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="软件工程-面向对象-类图 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件工程-面向对象-类图
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:20:43" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:43+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-18 22:25:48" itemprop="dateModified" datetime="2026-03-18T22:25:48+08:00">2026-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index"><span itemprop="name">面向对象</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文梳理了面向对象类图的结构、六大类间关系（依赖、关联、泛化、实现、聚合、组合），并给出装饰器模式的核心结构与代码示例，方便快速掌握面向对象建模与设计模式考点。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h1 id="📌-UML类图与面向对象关系速览"><a href="#📌-UML类图与面向对象关系速览" class="headerlink" title="📌 UML类图与面向对象关系速览"></a>📌 UML类图与面向对象关系速览</h1><h2 id="1-类图基础"><a href="#1-类图基础" class="headerlink" title="1. 类图基础"></a>1. 类图基础</h2><p>类图是描述软件系统结构的<strong>静态建模</strong>方法，核心是展示类的结构与类间关系。</p>
+<ul>
+<li><strong>结构三部分</strong>：类名（必填）、属性、操作</li>
+<li><strong>可见性符号</strong>：<ul>
+<li><code>+</code>：public（公共）</li>
+<li><code>-</code>：private（私有）</li>
+<li><code>#</code>：protected（受保护）</li>
+</ul>
+</li>
+<li><strong>属性格式</strong>：<code>可见性 属性名 : 类型 [= 默认值]</code></li>
+<li><strong>操作格式</strong>：<code>可见性 操作名(参数列表) : 返回值类型</code></li>
+</ul>
+<hr>
+<h2 id="2-类间关系详解"><a href="#2-类间关系详解" class="headerlink" title="2. 类间关系详解"></a>2. 类间关系详解</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>关系类型</th>
+<th>核心定义</th>
+<th>代码表现</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>依赖(Dependency)</strong></td>
+<td>临时使用关系，类A使用类B的服务，生命周期短暂</td>
+<td>方法参数、局部变量、返回值类型</td>
+<td><code>People</code> 类的 <code>eat(Food food)</code> 方法</td>
+</tr>
+<tr>
+<td><strong>关联(Association)</strong></td>
+<td>长期、平等的强依赖，语义级关系</td>
+<td>类B作为类A的<strong>成员变量</strong></td>
+<td><code>Customer</code> 包含 <code>Address address</code></td>
+</tr>
+<tr>
+<td><strong>泛化(Generalization)</strong></td>
+<td>继承关系，父类与子类的“一般-特殊”关系</td>
+<td><code>extends</code> 关键字</td>
+<td><code>Student extends Person</code></td>
+</tr>
+<tr>
+<td><strong>实现(Realization)</strong></td>
+<td>类与接口的关系，类实现接口声明的操作</td>
+<td><code>implements</code> 关键字</td>
+<td><code>Car implements Vehicle</code></td>
+</tr>
+<tr>
+<td><strong>聚合(Aggregation)</strong></td>
+<td>强关联的“整体-部分”，部分可脱离整体存在</td>
+<td>成员变量 + 构造/setter注入</td>
+<td><code>Car</code> 包含 <code>Engine engine</code>，引擎可单独存在</td>
+</tr>
+<tr>
+<td><strong>组合(Composition)</strong></td>
+<td>更强的“整体-部分”，部分与整体生命周期绑定</td>
+<td>成员变量在构造器中<strong>直接实例化</strong></td>
+<td><code>Head</code> 包含 <code>Mouth mouth</code>，头销毁则嘴也销毁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="3-设计模式示例（装饰器模式）"><a href="#3-设计模式示例（装饰器模式）" class="headerlink" title="3. 设计模式示例（装饰器模式）"></a>3. 设计模式示例（装饰器模式）</h2><ul>
+<li><strong>核心思想</strong>：在不修改原有类的前提下，动态给对象添加新功能。</li>
+<li><strong>结构</strong>：<ul>
+<li><code>Component</code>：抽象组件，定义核心操作</li>
+<li><code>ConcreteComponent</code>：具体组件，实现核心功能</li>
+<li><code>Decorator</code>：装饰器抽象类，继承 <code>Component</code> 并持有组件引用</li>
+<li><code>ConcreteDecorator</code>：具体装饰器，给组件添加额外功能</li>
+</ul>
+</li>
+<li><strong>代码结构</strong>：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Component</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">Operation</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteComponent</span> <span class="keyword">extends</span> <span class="title class_">Component</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Operation</span><span class="params">()</span> &#123; <span class="comment">/* 核心功能 */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Decorator</span> <span class="keyword">extends</span> <span class="title class_">Component</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> Component component;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Decorator</span><span class="params">(Component component)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.component = component;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteDecorator</span> <span class="keyword">extends</span> <span class="title class_">Decorator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ConcreteDecorator</span><span class="params">(Component component)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(component);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Operation</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">/* 额外功能 */</span></span><br><span class="line">        component.Operation();</span><br><span class="line">        <span class="comment">/* 额外功能 */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="💡-记忆技巧"><a href="#💡-记忆技巧" class="headerlink" title="💡 记忆技巧"></a>💡 记忆技巧</h1><ul>
+<li><strong>依赖 vs 关联</strong>：依赖是“临时用一下”，关联是“长期持有”</li>
+<li><strong>聚合 vs 组合</strong>：聚合是“可拆分”，组合是“不可拆分，同生共死”</li>
+<li><strong>泛化 vs 实现</strong>：泛化是类继承类，实现是类实现接口</li>
+</ul>
+<hr>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
+              <a href="/tags/%E7%B1%BB%E5%9B%BE/" rel="tag"># 类图</a>
+              <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag"># 面向对象</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="prev" title="软件工程-UML-基础概念">
+                  <i class="fa fa-angle-left"></i> 软件工程-UML-基础概念
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/42-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="next" title="软件工程-面向对象-基础概念">
+                  软件工程-面向对象-基础概念 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

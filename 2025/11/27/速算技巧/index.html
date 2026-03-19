@@ -71,6 +71,12 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -175,18 +181,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">116</span>
+        <span class="site-state-item-count">135</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,21 +280,20 @@
 <h2 id="0️⃣-小技巧汇总（便于速记）"><a href="#0️⃣-小技巧汇总（便于速记）" class="headerlink" title="0️⃣ 小技巧汇总（便于速记）"></a>0️⃣ 小技巧汇总（便于速记）</h2><ul>
 <li>加法：高位叠加 → 精算 <code>一加到底</code>；估算 <code>两加一估</code>  </li>
 <li>减法：划线减法 → 减少借位  </li>
-<li>乘法：高位乘法 &#x2F; 拆分法（接近整十）&#x2F; 口诀法（不接近整十）  </li>
+<li>乘法：高位乘法 / 拆分法（接近整十）/ 口诀法（不接近整十）  </li>
 <li>特殊数：<code>×1.5</code>、<code>×1.1</code>（错位相加）、<code>×0.9</code>（错位相减）  </li>
-<li>百化分：按图片分类（等差数列 &#x2F; 母子互换 &#x2F; 加和20），左—右互换便于记忆</li>
+<li>百化分：按图片分类（等差数列 / 母子互换 / 加和20），左—右互换便于记忆</li>
 </ul>
 <span id="more"></span>
-
 <hr>
-<h2 id="1️⃣-加法-减法"><a href="#1️⃣-加法-减法" class="headerlink" title="1️⃣ 加法 &#x2F; 减法"></a>1️⃣ 加法 &#x2F; 减法</h2><p><strong>尾数法</strong>  </p>
+<h2 id="1️⃣-加法-减法"><a href="#1️⃣-加法-减法" class="headerlink" title="1️⃣ 加法 / 减法"></a>1️⃣ 加法 / 减法</h2><p><strong>尾数法</strong>  </p>
 <ul>
 <li>何时用：加法、减法，精算，尾数不同  </li>
 <li>方法：尾数进行加减，观察选项判断正确区间</li>
 </ul>
 <p><strong>高位叠加</strong>  </p>
 <ul>
-<li>何时用：多个数相加求和，精算&#x2F;估算  </li>
+<li>何时用：多个数相加求和，精算/估算  </li>
 <li>方法：  <ul>
 <li>精算：从高位加到底  </li>
 <li>估算：两加一估（两位精加，最后一位粗估）</li>
@@ -319,138 +324,150 @@
 <hr>
 <h2 id="3️⃣-特殊数字"><a href="#3️⃣-特殊数字" class="headerlink" title="3️⃣ 特殊数字"></a>3️⃣ 特殊数字</h2><p><strong>技巧 51：乘 1.5</strong>  </p>
 <ul>
-<li>一个数 × 1.5 &#x3D; 这个数 + 自身一半</li>
+<li>一个数 × 1.5 = 这个数 + 自身一半</li>
 </ul>
 <p><strong>技巧 52：乘 1.1</strong>  </p>
 <ul>
-<li>一个数 × 1.1 &#x3D; 错位相加</li>
+<li>一个数 × 1.1 = 错位相加</li>
 </ul>
 <p><strong>技巧 53：乘 0.9</strong>  </p>
 <ul>
-<li>一个数 × 0.9 &#x3D; 错位相减</li>
+<li>一个数 × 0.9 = 错位相减</li>
 </ul>
 <p><strong>技巧 54：百化分</strong>  </p>
 <ul>
 <li>使用 CP 法辅助记忆</li>
 </ul>
 <hr>
-<h2 id="4️⃣-百化分（特殊分数-→-百分比）"><a href="#4️⃣-百化分（特殊分数-→-百分比）" class="headerlink" title="4️⃣ 百化分（特殊分数 → 百分比）"></a>4️⃣ 百化分（特殊分数 → 百分比）</h2><h3 id="4-1-等差数列"><a href="#4-1-等差数列" class="headerlink" title="4.1 等差数列"></a>4.1 等差数列</h3><table>
+<h2 id="4️⃣-百化分（特殊分数-→-百分比）"><a href="#4️⃣-百化分（特殊分数-→-百分比）" class="headerlink" title="4️⃣ 百化分（特殊分数 → 百分比）"></a>4️⃣ 百化分（特殊分数 → 百分比）</h2><h3 id="4-1-等差数列"><a href="#4-1-等差数列" class="headerlink" title="4.1 等差数列"></a>4.1 等差数列</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th>左侧（1&#x2F;x）</th>
+<th>左侧（1/x）</th>
 <th>百分比</th>
 <th>右侧（x）</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>1&#x2F;19</td>
+<tbody>
+<tr>
+<td>1/19</td>
 <td>5.3%</td>
 <td>19%</td>
 </tr>
 <tr>
-<td>1&#x2F;18</td>
+<td>1/18</td>
 <td>5.6%</td>
 <td>18%</td>
 </tr>
 <tr>
-<td>1&#x2F;17</td>
+<td>1/17</td>
 <td>5.9%</td>
 <td>17%</td>
 </tr>
-</tbody></table>
-<h3 id="4-2-母子互换"><a href="#4-2-母子互换" class="headerlink" title="4.2 母子互换"></a>4.2 母子互换</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="4-2-母子互换"><a href="#4-2-母子互换" class="headerlink" title="4.2 母子互换"></a>4.2 母子互换</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th>左侧（1&#x2F;x）</th>
+<th>左侧（1/x）</th>
 <th>百分比</th>
 <th>右侧（x）</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>1&#x2F;16</td>
+<tbody>
+<tr>
+<td>1/16</td>
 <td>6.25%</td>
 <td>16.7%</td>
 </tr>
 <tr>
-<td>1&#x2F;15</td>
+<td>1/15</td>
 <td>6.7%</td>
 <td>15%</td>
 </tr>
 <tr>
-<td>1&#x2F;14</td>
+<td>1/14</td>
 <td>7.1%</td>
 <td>14.3%</td>
 </tr>
 <tr>
-<td>1&#x2F;7</td>
+<td>1/7</td>
 <td>14.3%</td>
 <td>7%</td>
 </tr>
 <tr>
-<td>1&#x2F;6.5</td>
+<td>1/6.5</td>
 <td>15.4%</td>
 <td>6.5%</td>
 </tr>
 <tr>
-<td>1&#x2F;6</td>
+<td>1/6</td>
 <td>16.7%</td>
 <td>6%</td>
 </tr>
-</tbody></table>
-<h3 id="4-3-加和-20"><a href="#4-3-加和-20" class="headerlink" title="4.3 加和 20"></a>4.3 加和 20</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="4-3-加和-20"><a href="#4-3-加和-20" class="headerlink" title="4.3 加和 20"></a>4.3 加和 20</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th>左侧（1&#x2F;x）</th>
+<th>左侧（1/x）</th>
 <th>百分比</th>
 <th>右侧（x）</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>1&#x2F;13</td>
+<tbody>
+<tr>
+<td>1/13</td>
 <td>7.7%</td>
 <td>13%</td>
 </tr>
 <tr>
-<td>1&#x2F;12</td>
+<td>1/12</td>
 <td>8.3%</td>
 <td>12.5%</td>
 </tr>
 <tr>
-<td>1&#x2F;11</td>
+<td>1/11</td>
 <td>9.1%</td>
 <td>11.1%</td>
 </tr>
 <tr>
-<td>1&#x2F;10.5</td>
+<td>1/10.5</td>
 <td>9.5%</td>
 <td>10.5%</td>
 </tr>
 <tr>
-<td>1&#x2F;10</td>
+<td>1/10</td>
 <td>10%</td>
 <td>10%</td>
 </tr>
 <tr>
-<td>1&#x2F;9.5</td>
+<td>1/9.5</td>
 <td>10.5%</td>
 <td>9.5%</td>
 </tr>
 <tr>
-<td>1&#x2F;9</td>
+<td>1/9</td>
 <td>11.1%</td>
 <td>9%</td>
 </tr>
 <tr>
-<td>1&#x2F;8</td>
+<td>1/8</td>
 <td>12.5%</td>
 <td>8%</td>
 </tr>
 <tr>
-<td>1&#x2F;7.7</td>
+<td>1/7.7</td>
 <td>13%</td>
 <td>7.7%</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="一、分数拆分"><a href="#一、分数拆分" class="headerlink" title="一、分数拆分"></a>一、分数拆分</h2><p><strong>何时用：</strong></p>
 <ul>
@@ -484,7 +501,7 @@
 <li>看式子、看步伐法、截分子、广除法</li>
 <li>多步除法时：截分子、分母、分分</li>
 <li><strong>选项之间仅差 1 位或几位 → 直接算数字量级即可</strong></li>
-<li>若选项存在 9&#x2F;10、10&#x2F;100 的关系：先看量级，再计算</li>
+<li>若选项存在 9/10、10/100 的关系：先看量级，再计算</li>
 </ul>
 <hr>
 <h2 id="三、等比修正（主用于基期差值小、基期比例接近、选项差距小）"><a href="#三、等比修正（主用于基期差值小、基期比例接近、选项差距小）" class="headerlink" title="三、等比修正（主用于基期差值小、基期比例接近、选项差距小）"></a>三、等比修正（主用于基期差值小、基期比例接近、选项差距小）</h2><p><strong>何时用：</strong></p>
@@ -511,12 +528,12 @@
 <li>分母越小，整体越大</li>
 </ul>
 <hr>
-<h2 id="5️⃣-增长率-差值计算"><a href="#5️⃣-增长率-差值计算" class="headerlink" title="5️⃣ 增长率 &#x2F; 差值计算"></a>5️⃣ 增长率 &#x2F; 差值计算</h2><p><strong>公式</strong><br>增长率 &#x3D; (现期 &#x2F; 基期 - 1) × 100%<br>差值 &#x3D; 当年增长率 - 上年增长率</p>
+<h2 id="5️⃣-增长率-差值计算"><a href="#5️⃣-增长率-差值计算" class="headerlink" title="5️⃣ 增长率 / 差值计算"></a>5️⃣ 增长率 / 差值计算</h2><p><strong>公式</strong><br>增长率 = (现期 / 基期 - 1) × 100%<br>差值 = 当年增长率 - 上年增长率</p>
 <p><strong>注意</strong>  </p>
 <ul>
 <li>若题目给现期、基期 → 必须先算增长率  </li>
 <li>若给了增长率 → 可直接比较  </li>
-<li>两年中增长率差值最大的一年 &#x3D; “最不稳定的一年”</li>
+<li>两年中增长率差值最大的一年 = “最不稳定的一年”</li>
 </ul>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
@@ -541,7 +558,7 @@
             <div class="post-nav-item">
             </div>
             <div class="post-nav-item">
-                <a href="/2025/12/01/2025/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" rel="next" title="图形推理-思维导图">
+                <a href="/2025/12/01/apat/0%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" rel="next" title="图形推理-思维导图">
                   图形推理-思维导图 <i class="fa fa-angle-right"></i>
                 </a>
             </div>

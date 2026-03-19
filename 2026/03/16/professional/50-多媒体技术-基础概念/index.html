@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文整理了多媒体技术中媒体类型、汉字编码、文本输入等核心基础概念，适合备考与技术入门查阅。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多媒体技术-基础概念">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/16/professional/50-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="本文整理了多媒体技术中媒体类型、汉字编码、文本输入等核心基础概念，适合备考与技术入门查阅。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-16T15:55:25.000Z">
+<meta property="article:modified_time" content="2026-03-16T16:40:09.243Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="基础概念">
+<meta property="article:tag" content="多媒体技术">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/16/professional/50-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/16/professional/50-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/","path":"2026/03/16/professional/50-多媒体技术-基础概念/","title":"多媒体技术-基础概念"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>多媒体技术-基础概念 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">多媒体技术-基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AA%92%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">一、媒体的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%84%9F%E8%A7%89%E5%AA%92%E4%BD%93-%F0%9F%8E%A7"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 感觉媒体 🎧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A1%A8%E7%A4%BA%E5%AA%92%E4%BD%93-%F0%9F%92%BB"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 表示媒体 💻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%98%BE%E7%A4%BA%E5%AA%92%E4%BD%93-%F0%9F%96%A5%EF%B8%8F"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 显示媒体 🖥️</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AD%98%E5%82%A8%E5%AA%92%E4%BD%93-%F0%9F%92%BE"><span class="nav-number">2.1.4.</span> <span class="nav-text">4. 存储媒体 💾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93-%F0%9F%93%A1"><span class="nav-number">2.1.5.</span> <span class="nav-text">5. 传输媒体 📡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E5%AD%97%E5%AA%92%E4%BD%93%EF%BC%9A%E6%96%87%E6%9C%AC%E4%B8%8E%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">二、数字媒体：文本与汉字编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BB%E6%B5%81%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81%E6%A0%87%E5%87%86%E5%AF%B9%E6%AF%94"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 主流汉字编码标准对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%B1%89%E5%AD%97%E8%BE%93%E5%85%A5%E7%BC%96%E7%A0%81%E5%9B%9B%E5%A4%A7%E7%B1%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 汉字输入编码四大类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%96%87%E6%9C%AC%E4%BF%A1%E6%81%AF%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">三、文本信息的输入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BA%BA%E5%B7%A5%E8%BE%93%E5%85%A5-%E2%9C%8D%EF%B8%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 人工输入 ✍️</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB-%F0%9F%A4%96"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 自动识别 🤖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">2.4.</span> <span class="nav-text">四、总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/16/professional/50-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="多媒体技术-基础概念 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          多媒体技术-基础概念
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-16 23:55:25" itemprop="dateCreated datePublished" datetime="2026-03-16T23:55:25+08:00">2026-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-17 00:40:09" itemprop="dateModified" datetime="2026-03-17T00:40:09+08:00">2026-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">多媒体技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文整理了多媒体技术中<strong>媒体类型、汉字编码、文本输入</strong>等核心基础概念，适合备考与技术入门查阅。</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a><span id="more"></span></h2><h1 id="多媒体技术-基础概念"><a href="#多媒体技术-基础概念" class="headerlink" title="多媒体技术-基础概念"></a>多媒体技术-基础概念</h1><h2 id="一、媒体的类型"><a href="#一、媒体的类型" class="headerlink" title="一、媒体的类型"></a>一、媒体的类型</h2><p>在多媒体技术中，媒体根据功能和作用被划分为5类，共同构成了人与计算机之间的信息交互链路：</p>
+<h3 id="1-感觉媒体-🎧"><a href="#1-感觉媒体-🎧" class="headerlink" title="1. 感觉媒体 🎧"></a>1. 感觉媒体 🎧</h3><p>直接作用于人的感官，让我们产生视觉、听觉等感知的信息形式。</p>
+<ul>
+<li><strong>示例</strong>：文字、声音、图像、动画、视频</li>
+<li><strong>作用</strong>：是用户最终接收和感知的信息载体，也是多媒体内容的呈现形式。</li>
+</ul>
+<h3 id="2-表示媒体-💻"><a href="#2-表示媒体-💻" class="headerlink" title="2. 表示媒体 💻"></a>2. 表示媒体 💻</h3><p>为了让计算机能处理、传输和存储感觉媒体，而人为设计的<strong>数字化编码形式</strong>。</p>
+<ul>
+<li><strong>示例</strong>：文字编码（ASCII/Unicode）、声音编码（MP3/WAV）、图像编码（JPEG/PNG）</li>
+<li><strong>作用</strong>：将模拟的感觉媒体转换为计算机可识别的数字信号，是信息处理的核心桥梁。</li>
+</ul>
+<h3 id="3-显示媒体-🖥️"><a href="#3-显示媒体-🖥️" class="headerlink" title="3. 显示媒体 🖥️"></a>3. 显示媒体 🖥️</h3><p>实现人与计算机之间信息输入/输出的<strong>硬件设备</strong>。</p>
+<ul>
+<li><strong>输入设备</strong>：键盘、鼠标、麦克风、扫描仪</li>
+<li><strong>输出设备</strong>：显示器、打印机、音箱</li>
+<li><strong>作用</strong>：完成“人→机”的信息录入和“机→人”的信息展示。</li>
+</ul>
+<h3 id="4-存储媒体-💾"><a href="#4-存储媒体-💾" class="headerlink" title="4. 存储媒体 💾"></a>4. 存储媒体 💾</h3><p>用于长期保存数字化信息（表示媒体）的<strong>物理存储介质</strong>。</p>
+<ul>
+<li><strong>示例</strong>：纸张、光盘、U盘、硬盘、固态硬盘（SSD）</li>
+<li><strong>作用</strong>：实现多媒体信息的持久化存储，方便后续调用与传输。</li>
+</ul>
+<h3 id="5-传输媒体-📡"><a href="#5-传输媒体-📡" class="headerlink" title="5. 传输媒体 📡"></a>5. 传输媒体 📡</h3><p>承载数字化信息在设备间传输的<strong>物理通信线路</strong>。</p>
+<ul>
+<li><strong>示例</strong>：电话线、双绞线、同轴电缆、光纤、无线电波</li>
+<li><strong>作用</strong>：实现多媒体信息的网络传输与远程通信，是互联网信息流动的基础。</li>
+</ul>
+<hr>
+<h2 id="二、数字媒体：文本与汉字编码"><a href="#二、数字媒体：文本与汉字编码" class="headerlink" title="二、数字媒体：文本与汉字编码"></a>二、数字媒体：文本与汉字编码</h2><p>文本是计算机中最基础、最常用的数字媒体，而汉字编码是中文信息处理的核心。</p>
+<h3 id="1-主流汉字编码标准对比"><a href="#1-主流汉字编码标准对比" class="headerlink" title="1. 主流汉字编码标准对比"></a>1. 主流汉字编码标准对比</h3><p>我国及国际上主流的汉字编码标准经历了多次演进，下表清晰对比了它们的核心差异：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">维度</th>
+<th style="text-align:left">GB2312</th>
+<th style="text-align:left">GBK</th>
+<th style="text-align:left">UCS/Unicode</th>
+<th style="text-align:left">GB18030</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">出现时间</td>
+<td style="text-align:left">1981年</td>
+<td style="text-align:left">1995年</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">2000年</td>
+</tr>
+<tr>
+<td style="text-align:left">核心意义</td>
+<td style="text-align:left">最早的简体汉字编码</td>
+<td style="text-align:left">首次支持繁体汉字</td>
+<td style="text-align:left">全球多语言统一编码</td>
+<td style="text-align:left">支持汉字数目最多</td>
+</tr>
+<tr>
+<td style="text-align:left">收录汉字</td>
+<td style="text-align:left">6763个</td>
+<td style="text-align:left">21003个</td>
+<td style="text-align:left">2万+</td>
+<td style="text-align:left">27484个</td>
+</tr>
+<tr>
+<td style="text-align:left">支持繁体</td>
+<td style="text-align:left">❌否</td>
+<td style="text-align:left">✅是</td>
+<td style="text-align:left">✅是</td>
+<td style="text-align:left">✅是</td>
+</tr>
+<tr>
+<td style="text-align:left">包含CJK字符</td>
+<td style="text-align:left">❌否</td>
+<td style="text-align:left">✅是</td>
+<td style="text-align:left">✅是</td>
+<td style="text-align:left">✅是</td>
+</tr>
+<tr>
+<td style="text-align:left">编码长度</td>
+<td style="text-align:left">双字节</td>
+<td style="text-align:left">双字节</td>
+<td style="text-align:left">不等长（1B/2B/3B）</td>
+<td style="text-align:left">不等长（考试常记为2B）</td>
+</tr>
+<tr>
+<td style="text-align:left">兼容性</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">向下兼容GB2312</td>
+<td style="text-align:left">不兼容</td>
+<td style="text-align:left">向下兼容GB2312/GBK，与UCS/Unicode不兼容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>💡 补充：<strong>BIG5</strong> 是中国台湾地区广泛使用的繁体汉字编码，与大陆GB系列编码互不兼容，跨平台显示时需要进行编码转换。</p>
+</blockquote>
+<h3 id="2-汉字输入编码四大类"><a href="#2-汉字输入编码四大类" class="headerlink" title="2. 汉字输入编码四大类"></a>2. 汉字输入编码四大类</h3><p>将汉字输入计算机的方法，根据编码逻辑分为四类：</p>
+<ol>
+<li><strong>数字编码</strong><ul>
+<li>用数字序列表示汉字，如电报码、区位码</li>
+<li>缺点：记忆难度大，目前已很少使用</li>
+</ul>
+</li>
+<li><strong>字音编码</strong><ul>
+<li>基于汉语拼音，如智能ABC、QQ拼音、搜狗输入法</li>
+<li>优点：上手快、易学习；缺点：同音字多导致重码率高，需要手动选择候选词</li>
+</ul>
+</li>
+<li><strong>字形编码</strong><ul>
+<li>将汉字字形拆解归类，如五笔字形法、表形码</li>
+<li>优点：重码少、输入速度快；缺点：编码规则复杂，需要长期练习才能熟练掌握</li>
+</ul>
+</li>
+<li><strong>形音编码</strong><ul>
+<li>结合字音和字形编码的优势，简化编码规则</li>
+<li>优点：重码率降低；缺点：掌握门槛仍较高，普及率不如拼音输入法</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="三、文本信息的输入方式"><a href="#三、文本信息的输入方式" class="headerlink" title="三、文本信息的输入方式"></a>三、文本信息的输入方式</h2><p>文本信息的输入方式可分为<strong>人工输入</strong>和<strong>自动识别</strong>两大类，覆盖了不同场景下的输入需求：</p>
+<h3 id="1-人工输入-✍️"><a href="#1-人工输入-✍️" class="headerlink" title="1. 人工输入 ✍️"></a>1. 人工输入 ✍️</h3><p>由用户主动向计算机输入文本的方式：</p>
+<ul>
+<li><strong>键盘输入</strong>：通过物理键盘或手机/平板的虚拟键盘敲击按键，是计算机和移动设备最主流的输入方式。</li>
+<li><strong>联机手写输入</strong>：使用电子笔、触摸屏或手写板书写，软件实时将笔迹转换为数字文本。</li>
+<li><strong>语音输入</strong>：用户通过说话输入内容，语音识别软件（如讯飞听见、微信语音输入）将语音转换为文字，在移动设备、智能家居中应用广泛。</li>
+</ul>
+<h3 id="2-自动识别-🤖"><a href="#2-自动识别-🤖" class="headerlink" title="2. 自动识别 🤖"></a>2. 自动识别 🤖</h3><p>计算机自动识别并转换文本的方式，无需用户手动输入：</p>
+<ul>
+<li><strong>印刷体识别（OCR）</strong>：通过图像识别技术，将扫描或拍摄的纸质文档、图片中的印刷文字转换为可编辑的数字文本，典型场景：文档数字化、车牌识别。</li>
+<li><strong>手写体识别</strong>：处理静态的手写文本图像（如纸质手写稿），软件分析笔迹结构后将其转换为数字文本，与联机手写的区别是处理已完成的笔迹。</li>
+</ul>
+<hr>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>多媒体技术的基础是<strong>信息的编码、存储、传输与呈现</strong>：</p>
+<ul>
+<li>从<strong>感觉媒体</strong>到<strong>表示媒体</strong>，完成了信息从“人感”到“机算”的转换。</li>
+<li>从<strong>显示媒体</strong>到<strong>存储/传输媒体</strong>，实现了信息的交互、留存与流通。</li>
+<li>汉字编码与文本输入是中文数字化的核心，理解编码标准和输入方法，是掌握计算机中文处理的第一步。</li>
+</ul>
+<hr>
+<blockquote>
+<p>本文为备考整理版，后续将补充图像、音频、视频等其他多媒体类型的基础概念，敬请关注。</p>
+</blockquote>
+<hr>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="tag"># 基础概念</a>
+              <a href="/tags/%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF/" rel="tag"># 多媒体技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/16/professional/51-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E9%9F%B3%E9%A2%91%E4%B8%8E%E5%9B%BE%E5%83%8F/" rel="prev" title="多媒体技术-音频与图像基础">
+                  <i class="fa fa-angle-left"></i> 多媒体技术-音频与图像基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/17/professional/52-%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95-%E5%A4%87%E8%80%83/" rel="next" title="多媒体技术-备考速记清单">
+                  多媒体技术-备考速记清单 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

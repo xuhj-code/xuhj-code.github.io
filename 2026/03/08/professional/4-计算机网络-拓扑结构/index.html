@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="💡 备考小贴士  以太网是局域网最主流技术，核心是CSMA&#x2F;CD介质访问控制。 星型拓扑是当前局域网最常用结构，核心设备为交换机。 网状拓扑可靠性最高，主要用于广域网骨干和数据中心等对可用性要求极高的场景。 三层架构核心是“核心高速转发、汇聚策略控制、接入终端管理”，考试中常考各层功能与设备选型。 WLAN重点是AC部署模式与无线安全配置，旁挂式是企业网主流选择。 安全设备需记住：防火墙是边界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络-拓扑结构">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/08/professional/4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="💡 备考小贴士  以太网是局域网最主流技术，核心是CSMA&#x2F;CD介质访问控制。 星型拓扑是当前局域网最常用结构，核心设备为交换机。 网状拓扑可靠性最高，主要用于广域网骨干和数据中心等对可用性要求极高的场景。 三层架构核心是“核心高速转发、汇聚策略控制、接入终端管理”，考试中常考各层功能与设备选型。 WLAN重点是AC部署模式与无线安全配置，旁挂式是企业网主流选择。 安全设备需记住：防火墙是边界">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-07T17:08:37.000Z">
+<meta property="article:modified_time" content="2026-03-19T07:17:16.431Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="拓扑结构">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/08/professional/4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/08/professional/4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/","path":"2026/03/08/professional/4-计算机网络-拓扑结构/","title":"计算机网络-拓扑结构"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机网络-拓扑结构 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%B8%80%E3%80%81%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E9%80%9F%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">📌 一、网络基础概念速览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%88LAN%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 局域网（LAN）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B9%BF%E5%9F%9F%E7%BD%91%EF%BC%88WAN%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 广域网（WAN）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BA%92%E8%81%94%E7%BD%91%EF%BC%88Internet%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 互联网（Internet）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BB%A5%E5%A4%AA%E7%BD%91%EF%BC%88Ethernet%EF%BC%89"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 以太网（Ethernet）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%BA%8C%E3%80%81%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E7%AC%A6%E5%8F%B7%E9%80%9F%E6%9F%A5"><span class="nav-number">1.2.</span> <span class="nav-text">📌 二、网络设备符号速查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%B8%89%E3%80%81%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">📌 三、网络拓扑结构详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%98%9F%E5%9E%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">2. 星型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%8E%AF%E5%9E%8B"><span class="nav-number">1.3.2.</span> <span class="nav-text">3. 环型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%A0%91%E5%9E%8B"><span class="nav-number">1.3.3.</span> <span class="nav-text">4. 树型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%BD%91%E7%8A%B6%E5%9E%8B"><span class="nav-number">1.3.4.</span> <span class="nav-text">5. 网状型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9B%9B%E3%80%81%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">📌 四、拓扑结构对比表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">相关应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%B8%80%E3%80%81%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86"><span class="nav-number">2.1.</span> <span class="nav-text">📌 一、三层网络结构核心知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E5%8A%9F%E8%83%BD%E4%B8%8E%E8%AE%BE%E5%A4%87"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 三层架构功能与设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%89%E5%B1%82%E6%8B%93%E6%89%91%E5%9B%BE%E7%A4%BA"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 三层拓扑图示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%BA%8C%E3%80%81%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%88WLAN%EF%BC%89%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86"><span class="nav-number">2.2.</span> <span class="nav-text">📌 二、无线局域网（WLAN）核心知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%B8%E5%BF%83%E8%AE%BE%E5%A4%87%E4%B8%8E%E6%A0%87%E5%87%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 核心设备与标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AC%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. AC部署模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 基础配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%B8%89%E3%80%81%E6%9C%89%E7%BA%BF-%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E9%85%8D%E7%BD%AE%E5%AF%B9%E6%AF%94"><span class="nav-number">2.3.</span> <span class="nav-text">📌 三、有线&#x2F;无线局域网配置对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.3.1.</span> <span class="nav-text">基本配置步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E5%9B%9B%E3%80%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%AE%BE%E5%A4%87%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%8A%9F%E8%83%BD"><span class="nav-number">2.4.</span> <span class="nav-text">📌 四、网络安全设备部署与功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%AE%BE%E5%A4%87%E9%80%89%E5%9E%8B%E4%B8%8E%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 设备选型与位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IPS%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. IPS主要功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2%E4%B8%8D%E8%B6%B3"><span class="nav-number">2.4.3.</span> <span class="nav-text">3. 部署不足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E4%BA%94%E3%80%81%E6%A1%88%E4%BE%8B%E6%8B%93%E6%89%91%E8%AE%BE%E5%A4%87%E8%A1%A5%E5%85%85%EF%BC%88%E6%9F%90%E5%8D%95%E4%BD%8D%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="nav-number">2.5.</span> <span class="nav-text">📌 五、案例拓扑设备补充（某单位网络）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机网络-拓扑结构 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络-拓扑结构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:08:37" itemprop="dateCreated datePublished" datetime="2026-03-08T01:08:37+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-19 15:17:16" itemprop="dateModified" datetime="2026-03-19T15:17:16+08:00">2026-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>💡 备考小贴士</p>
+<ul>
+<li><strong>以太网</strong>是局域网最主流技术，核心是<strong>CSMA/CD</strong>介质访问控制。</li>
+<li><strong>星型拓扑</strong>是当前局域网最常用结构，核心设备为<strong>交换机</strong>。</li>
+<li><strong>网状拓扑</strong>可靠性最高，主要用于<strong>广域网骨干</strong>和<strong>数据中心</strong>等对可用性要求极高的场景。</li>
+<li><strong>三层架构</strong>核心是“核心高速转发、汇聚策略控制、接入终端管理”，考试中常考各层功能与设备选型。</li>
+<li><strong>WLAN</strong>重点是AC部署模式与无线安全配置，旁挂式是企业网主流选择。</li>
+<li><strong>安全设备</strong>需记住：防火墙是边界隔离，IDS是被动监测，IPS是主动防御，网闸是物理隔离。</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><h2 id="📌-一、网络基础概念速览"><a href="#📌-一、网络基础概念速览" class="headerlink" title="📌 一、网络基础概念速览"></a>📌 一、网络基础概念速览</h2><h3 id="1-局域网（LAN）"><a href="#1-局域网（LAN）" class="headerlink" title="1. 局域网（LAN）"></a>1. 局域网（LAN）</h3><ul>
+<li><strong>定义</strong>：在相对较小的地理范围（通常≤10公里）内，将计算机、外部设备、数据库等通过物理层介质连接，实现资源和信息共享的计算机互联网络。</li>
+<li><strong>典型场景</strong>：办公室、校园、家庭网络。</li>
+</ul>
+<h3 id="2-广域网（WAN）"><a href="#2-广域网（WAN）" class="headerlink" title="2. 广域网（WAN）"></a>2. 广域网（WAN）</h3><ul>
+<li><strong>定义</strong>：覆盖范围极广的长距离网络，可跨越多个城市、国家甚至全球，通过传输技术将不同地区的局域网/城域网连接，实现远程通信和数据传输。</li>
+<li><strong>典型场景</strong>：互联网骨干网、跨地域企业专线。</li>
+</ul>
+<h3 id="3-互联网（Internet）"><a href="#3-互联网（Internet）" class="headerlink" title="3. 互联网（Internet）"></a>3. 互联网（Internet）</h3><ul>
+<li><strong>定义</strong>：全球性计算机网络，基于TCP/IP协议运行，是开放、共享、自由的网络环境，可在任何地点获取信息。</li>
+</ul>
+<h3 id="4-以太网（Ethernet）"><a href="#4-以太网（Ethernet）" class="headerlink" title="4. 以太网（Ethernet）"></a>4. 以太网（Ethernet）</h3><ul>
+<li><strong>定义</strong>：采用CSMA/CD介质访问控制方法的共享总线型局域网技术，符合IEEE 802.3标准，是目前使用最广泛的局域网技术。</li>
+</ul>
+<hr>
+<h2 id="📌-二、网络设备符号速查"><a href="#📌-二、网络设备符号速查" class="headerlink" title="📌 二、网络设备符号速查"></a>📌 二、网络设备符号速查</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>设备类型</th>
+<th>符号特征</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>路由器</td>
+<td>圆形交叉箭头图标</td>
+<td>实现不同网络间的路由转发</td>
+</tr>
+<tr>
+<td>无线路由器</td>
+<td>带天线的路由器图标</td>
+<td>支持无线接入</td>
+</tr>
+<tr>
+<td>带防火墙的路由器</td>
+<td>带过滤标识的路由器图标</td>
+<td>集成安全过滤功能</td>
+</tr>
+<tr>
+<td>交换机</td>
+<td>方形交叉箭头/多端口图标</td>
+<td>局域网内数据交换</td>
+</tr>
+<tr>
+<td>三层交换机</td>
+<td>带太阳标识的交换机图标</td>
+<td>支持三层路由功能</td>
+</tr>
+<tr>
+<td>防火墙</td>
+<td>砖墙/斜纹矩形图标</td>
+<td>网络访问控制与安全防护</td>
+</tr>
+<tr>
+<td>入侵防御/检测</td>
+<td>盾牌/眼睛图标</td>
+<td>分别对应IPS/IDS功能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="📌-三、网络拓扑结构详解"><a href="#📌-三、网络拓扑结构详解" class="headerlink" title="📌 三、网络拓扑结构详解"></a>📌 三、网络拓扑结构详解</h2><pre class="mermaid">flowchart LR
+    subgraph 网络设备考试标准图例
+        Internet[互联网]
+        FW[防火墙]
+        Router[路由器]
+        Core[核心交换机]
+        Agg[汇聚交换机]
+        Acc[接入交换机]
+        AP[无线AP]
+        PC[终端PC]
+        Server[服务器]
+    end
+
+    %% 考试官方配色 + 样式
+    classDef internet fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px
+    classDef fw fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef router fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef core fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef agg fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef acc fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    classDef ap fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef pc fill:#ffffff,stroke:#424242,stroke-width:2px
+    classDef server fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+
+    class Internet internet
+    class FW fw
+    class Router router
+    class Core core
+    class Agg agg
+    class Acc acc
+    class AP ap
+    class PC pc
+    class Server server</pre>
+### 1. 总线型
+- **结构**：所有设备共享一条传输介质（如同轴电缆、双绞线）。
+- **协议**：IEEE 802.3（CSMA/CD）。
+- **优点**：布线容易、成本低、易扩展、线路利用率高。
+- **缺点**：带宽受限、安全性差、故障诊断困难，总线故障会导致全网瘫痪。
+- **代表**：早期以太网。
+- **图示**：
+<pre class="mermaid">flowchart LR
+    subgraph 共享总线
+        PC1 --- 主干线
+        PC2 --- 主干线
+        PC3 --- 主干线
+        PC4 --- 主干线
+    end
+    classDef pc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    class PC1,PC2,PC3,PC4 pc
+    classDef bus fill:#f3e5f5,stroke:#4a148c,stroke-width:3px
+    class 主干线 bus</pre>
+
+<h3 id="2-星型"><a href="#2-星型" class="headerlink" title="2. 星型"></a>2. 星型</h3><ul>
+<li><strong>结构</strong>：所有设备通过中心节点（交换机/集线器）连接。</li>
+<li><strong>优点</strong>：易于管理、可靠性高、故障诊断和扩展方便。</li>
+<li><strong>缺点</strong>：中心依赖，主节点负载过重会导致全网故障。</li>
+<li><strong>代表</strong>：现代以太网、中小型办公网络。</li>
+<li><strong>图示</strong>：<pre class="mermaid">flowchart TD
+  中心交换机 --- PC1
+  中心交换机 --- PC2
+  中心交换机 --- PC3
+  中心交换机 --- PC4
+  classDef switch fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+  class 中心交换机 switch
+  classDef pc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+  class PC1,PC2,PC3,PC4 pc</pre>
+
+</li>
+</ul>
+<h3 id="3-环型"><a href="#3-环型" class="headerlink" title="3. 环型"></a>3. 环型</h3><ul>
+<li><strong>结构</strong>：节点连接成闭环，数据沿固定方向传输。</li>
+<li><strong>协议</strong>：令牌环网（Token Ring）。</li>
+<li><strong>优点</strong>：信息传输路径唯一、电缆长度短。</li>
+<li><strong>缺点</strong>：单点故障会导致全网瘫痪、可靠性差。</li>
+<li><strong>代表</strong>：光纤分布式数据接口（FDDI）。</li>
+<li><strong>图示</strong>：<pre class="mermaid">flowchart LR
+  PC1 --- PC2
+  PC2 --- PC3
+  PC3 --- PC4
+  PC4 --- PC1
+  classDef pc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+  class PC1,PC2,PC3,PC4 pc</pre>
+
+</li>
+</ul>
+<h3 id="4-树型"><a href="#4-树型" class="headerlink" title="4. 树型"></a>4. 树型</h3><ul>
+<li><strong>结构</strong>：层次化结构，由多个星型拓扑连接到主干线路，形成“核心-汇聚-接入”三层架构。</li>
+<li><strong>优点</strong>：扩展性好、管理分层、故障隔离方便。</li>
+<li><strong>缺点</strong>：根节点故障影响全局、布线复杂。</li>
+<li><strong>代表</strong>：大型企业局域网、多部门组织结构。</li>
+<li><p><strong>图示</strong>：</p>
+<pre class="mermaid">flowchart TD
+  核心层交换机 --> 汇聚交换机1
+  核心层交换机 --> 汇聚交换机2
+  核心层交换机 --> 汇聚交换机3
+
+  汇聚交换机1 --> 接入交换机A
+  汇聚交换机1 --> 接入交换机B
+  汇聚交换机2 --> 接入交换机C
+  汇聚交换机3 --> 接入交换机D
+
+  接入交换机A --> PC1
+  接入交换机A --> PC2
+  接入交换机B --> PC3
+  接入交换机C --> PC4
+  接入交换机D --> PC5
+
+  classDef core fill:#fff3e0,stroke:#e65100,stroke-width:3px
+  class 核心层交换机 core
+  classDef agg fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+  class 汇聚交换机1,汇聚交换机2,汇聚交换机3 agg
+  classDef access fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+  class 接入交换机A,接入交换机B,接入交换机C,接入交换机D access
+  classDef pc fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+  class PC1,PC2,PC3,PC4,PC5 pc</pre>
+
+</li>
+</ul>
+<h3 id="5-网状型"><a href="#5-网状型" class="headerlink" title="5. 网状型"></a>5. 网状型</h3><ul>
+<li><strong>结构</strong>：节点间连接任意，每个节点可与多个其他节点直接相连，又称无规则结构。</li>
+<li><strong>优点</strong>：可靠性极高、易于扩展、数据传输有多条冗余路径。</li>
+<li><strong>缺点</strong>：结构复杂、线路成本高、管理维护困难。</li>
+<li><strong>代表</strong>：互联网骨干网、数据中心核心网络。</li>
+<li><p><strong>图示</strong>：</p>
+<pre class="mermaid">flowchart TD
+  A --- B
+  A --- C
+  B --- C
+  B --- D
+  C --- D
+  D --- A
+  classDef node fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+  class A,B,C,D node</pre>
+### 🔥 考试标准企业三层网络拓扑
+<pre class="mermaid">flowchart TD
+  %% 出口
+  Internet[Internet]
+
+  %% 安全
+  FW[防火墙]
+
+  %% 核心
+  Core[核心交换机]
+
+  %% 汇聚
+  Agg1[汇聚交换机1]
+  Agg2[汇聚交换机2]
+
+  %% 接入
+  Acc1[接入交换机1]
+  Acc2[接入交换机2]
+  Acc3[无线AP]
+
+  %% 终端
+  PC1[PC]
+  PC2[PC]
+  PC3[PC]
+  Server[服务器]
+
+  %% 连接
+  Internet --> FW
+  FW --> Core
+
+  Core --> Agg1
+  Core --> Agg2
+
+  Agg1 --> Acc1
+  Agg2 --> Acc2
+  Agg2 --> Acc3
+
+  Acc1 --> PC1
+  Acc1 --> PC2
+  Acc2 --> PC3
+  Core --> Server
+
+  %% 样式（考试常用配色）
+  classDef internet fill:#e3f2fd,stroke:#0d47a1
+  classDef fw fill:#ffebee,stroke:#c62828
+  classDef core fill:#fff8e1,stroke:#f57f17
+  classDef agg fill:#e8f5e8,stroke:#2e7d32
+  classDef acc fill:#f3e5f5,stroke:#6a1b9a
+  classDef pc fill:#ffffff,stroke:#424242
+  classDef server fill:#e0f2f1,stroke:#00695c
+
+  class Internet internet
+  class FW fw
+  class Core core
+  class Agg1,Agg2 agg
+  class Acc1,Acc2,Acc3 acc
+  class PC1,PC2,PC3 pc
+  class Server server</pre>
+
+</li>
+</ul>
+<hr>
+<h2 id="📌-四、拓扑结构对比表"><a href="#📌-四、拓扑结构对比表" class="headerlink" title="📌 四、拓扑结构对比表"></a>📌 四、拓扑结构对比表</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>拓扑结构</th>
+<th>核心特点</th>
+<th>优点</th>
+<th>缺点</th>
+<th>典型应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>总线型</td>
+<td>共享一条传输介质</td>
+<td>成本低、布线简单</td>
+<td>可靠性差、故障诊断难</td>
+<td>早期以太网、小型临时网络</td>
+</tr>
+<tr>
+<td>星型</td>
+<td>中心节点连接所有设备</td>
+<td>易管理、故障隔离方便</td>
+<td>中心节点依赖</td>
+<td>现代以太网、校园网络</td>
+</tr>
+<tr>
+<td>环型</td>
+<td>闭合环路、单向传输</td>
+<td>路径唯一、电缆短</td>
+<td>单点故障致全网瘫痪</td>
+<td>FDDI、光纤分布式网络</td>
+</tr>
+<tr>
+<td>树型</td>
+<td>层次化“核心-汇聚-接入”</td>
+<td>扩展性好、分层管理</td>
+<td>根节点故障影响全局</td>
+<td>大型企业网、多部门组织</td>
+</tr>
+<tr>
+<td>网状型</td>
+<td>节点间任意连接</td>
+<td>超高可靠性、多冗余路径</td>
+<td>成本高、管理复杂</td>
+<td>互联网骨干网、数据中心</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="相关应用"><a href="#相关应用" class="headerlink" title="相关应用"></a>相关应用</h1><h2 id="📌-一、三层网络结构核心知识"><a href="#📌-一、三层网络结构核心知识" class="headerlink" title="📌 一、三层网络结构核心知识"></a>📌 一、三层网络结构核心知识</h2><h3 id="1-三层架构功能与设备"><a href="#1-三层架构功能与设备" class="headerlink" title="1. 三层架构功能与设备"></a>1. 三层架构功能与设备</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>核心功能</th>
+<th>设备要求</th>
+<th>设计原则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心层</strong></td>
+<td>高速数据交换（跨子网骨干流量）</td>
+<td>高端三层交换机<br>万兆/100G端口<br>冗余电源/引擎</td>
+<td>高速转发，禁用复杂策略<br>高可靠性：设备/链路全冗余<br>最小化延迟</td>
+</tr>
+<tr>
+<td><strong>汇聚层</strong></td>
+<td>策略控制与区域聚合</td>
+<td>中高端三层交换机<br>多千兆上联<br>支持OSPF</td>
+<td>VLAN路由：终结接入层VLAN<br>策略实施：ACL、QoS、安全域<br>路由汇总：减小核心层路由表</td>
+</tr>
+<tr>
+<td><strong>接入层</strong></td>
+<td>终端接入与管理</td>
+<td>二层PoE交换机/Wi-Fi AP<br>高端口密度<br>低成本</td>
+<td>端口安全：MAC绑定/802.1X<br>VLAN划分：按部门隔离<br>PoE供电：AP/IP电话</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-三层拓扑图示"><a href="#2-三层拓扑图示" class="headerlink" title="2. 三层拓扑图示"></a>2. 三层拓扑图示</h3><ul>
+<li><strong>核心层</strong>：双核心三层交换机，实现链路/设备冗余，连接互联网与各汇聚层。</li>
+<li><strong>汇聚层</strong>：三层交换机，负责流量聚合、VLAN终结与策略控制。</li>
+<li><strong>接入层</strong>：交换机/AP，直接面向用户终端，提供接入与带宽分配。</li>
+</ul>
+<hr>
+<h2 id="📌-二、无线局域网（WLAN）核心知识"><a href="#📌-二、无线局域网（WLAN）核心知识" class="headerlink" title="📌 二、无线局域网（WLAN）核心知识"></a>📌 二、无线局域网（WLAN）核心知识</h2><h3 id="1-核心设备与标准"><a href="#1-核心设备与标准" class="headerlink" title="1. 核心设备与标准"></a>1. 核心设备与标准</h3><ul>
+<li><strong>AP（无线接入点）</strong>：发射无线信号，为终端提供接入接口，通过有线连接到核心网络。</li>
+<li><strong>AC（无线控制器）</strong>：集中管理所有AP，统一配置SSID、加密、带宽限制，实现AP间无缝漫游。</li>
+<li><strong>标准</strong>：IEEE 802.11系列（a/b/g/n/ac/ax）。</li>
+</ul>
+<h3 id="2-AC部署模式"><a href="#2-AC部署模式" class="headerlink" title="2. AC部署模式"></a>2. AC部署模式</h3><ul>
+<li><strong>串联（直连式）</strong>：AC、AP与上层网络串联，所有数据必须通过AC到达上层网络，AC承担全部控制与数据汇聚功能。</li>
+<li><strong>旁挂式</strong>：AC旁挂在AP与上层网络的直连交换机上，不直接连接AP，AP业务数据可不经AC直接到达上层网络，更适合大流量场景。</li>
+</ul>
+<h3 id="3-基础配置"><a href="#3-基础配置" class="headerlink" title="3. 基础配置"></a>3. 基础配置</h3><ul>
+<li><strong>SSID</strong>：无线网络名称，建议唯一且易于识别。</li>
+<li><strong>频段</strong>：2.4GHz（覆盖广、穿墙强）与5GHz（速度快、干扰少）双频优选。</li>
+<li><strong>加密</strong>：推荐WPA2-Personal（AES）或WPA3，设置强密码（字母+数字+符号组合）。</li>
+</ul>
+<hr>
+<h2 id="📌-三、有线-无线局域网配置对比"><a href="#📌-三、有线-无线局域网配置对比" class="headerlink" title="📌 三、有线/无线局域网配置对比"></a>📌 三、有线/无线局域网配置对比</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>有线局域网</th>
+<th>无线局域网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输介质</td>
+<td>网线（双绞线/光纤）</td>
+<td>无线电波</td>
+</tr>
+<tr>
+<td>连接方式</td>
+<td>物理端口，稳定、点对点</td>
+<td>易受环境/干扰影响，广播式</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>高速、稳定、低延迟</td>
+<td>延迟较高，受距离/干扰影响</td>
+</tr>
+<tr>
+<td>协议</td>
+<td>IEEE 802.3</td>
+<td>IEEE 802.11</td>
+</tr>
+<tr>
+<td>配置关键</td>
+<td>交换机VLAN、端口</td>
+<td>SSID、加密、信道、频段</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="基本配置步骤"><a href="#基本配置步骤" class="headerlink" title="基本配置步骤"></a>基本配置步骤</h3><ul>
+<li><strong>有线</strong>：物理连接 → 自动获取IP（DHCP推荐）→ 手动设置静态IP（服务器等设备）。</li>
+<li><strong>无线</strong>：连接Web管理界面 → 登录默认Wi-Fi → 配置SSID/密码/加密 → 信道/频段优化。</li>
+</ul>
+<hr>
+<h2 id="📌-四、网络安全设备部署与功能"><a href="#📌-四、网络安全设备部署与功能" class="headerlink" title="📌 四、网络安全设备部署与功能"></a>📌 四、网络安全设备部署与功能</h2><h3 id="1-设备选型与位置"><a href="#1-设备选型与位置" class="headerlink" title="1. 设备选型与位置"></a>1. 设备选型与位置</h3><ul>
+<li><strong>安全设备1（互联网入口）</strong>：<strong>防火墙/包过滤路由器</strong> → 实现内外网边界访问控制，隔离办公网与互联网。</li>
+<li><strong>安全设备2（服务器区前端）</strong>：<strong>入侵检测系统（IDS）/流量探针</strong> → 被动监测服务器区流量，发现攻击行为但不直接阻断。</li>
+<li><strong>安全设备3（核心交换旁挂）</strong>：<strong>入侵防御系统（IPS）/WAF</strong> → 主动监测并阻断网络攻击，保护核心业务。</li>
+</ul>
+<h3 id="2-IPS主要功能"><a href="#2-IPS主要功能" class="headerlink" title="2. IPS主要功能"></a>2. IPS主要功能</h3><ul>
+<li>实时监测网络中的攻击行为（如DDoS、SQL注入、端口扫描）。</li>
+<li>主动阻断攻击流量，防止攻击扩散到内部网络。</li>
+<li>提供攻击日志与告警，便于事后溯源与分析。</li>
+</ul>
+<h3 id="3-部署不足"><a href="#3-部署不足" class="headerlink" title="3. 部署不足"></a>3. 部署不足</h3><ul>
+<li><strong>单点故障</strong>：核心层/安全设备未做冗余，一旦设备故障会导致全网业务中断。</li>
+<li><strong>性能瓶颈</strong>：串联模式下AC/防火墙可能成为流量瓶颈，大流量场景下建议旁挂或集群部署。</li>
+</ul>
+<hr>
+<h2 id="📌-五、案例拓扑设备补充（某单位网络）"><a href="#📌-五、案例拓扑设备补充（某单位网络）" class="headerlink" title="📌 五、案例拓扑设备补充（某单位网络）"></a>📌 五、案例拓扑设备补充（某单位网络）</h2><p>根据拓扑与需求（物理隔离、三层交换机、并发与流量控制），设备1~8对应如下：</p>
+<ol>
+<li><strong>接入层交换机</strong>（家属区终端接入）</li>
+<li><strong>IPv6路由器</strong>（连接IPv6网络）</li>
+<li><strong>并发与流量控制器</strong>（限制互联网访问带宽与并发数）</li>
+<li><strong>核心交换机</strong>（全网高速交换核心）</li>
+<li><strong>网闸</strong>（实现服务器群与外部网络物理隔离）</li>
+<li><strong>AP控制器（AC）</strong>（集中管理无线AP）</li>
+<li><strong>汇聚交换机</strong>（办公楼/无线区域流量聚合）</li>
+<li><strong>防火墙</strong>（互联网边界安全防护）</li>
+</ol>
+<hr>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+              <a href="/tags/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84/" rel="tag"># 拓扑结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/21-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%9F%A5%E6%89%BE/" rel="prev" title="程序设计-数据结构-查找">
+                  <i class="fa fa-angle-left"></i> 程序设计-数据结构-查找
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%AE%BE%E5%A4%87/" rel="next" title="计算机网络-网络安全设备">
+                  计算机网络-网络安全设备 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

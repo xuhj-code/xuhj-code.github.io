@@ -67,11 +67,129 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -170,18 +288,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">116</span>
+        <span class="site-state-item-count">135</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -207,7 +325,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/44%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/16/professional/47-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -225,7 +343,322 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/44%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">软件工程-设计原则</a>
+          <a href="/2026/03/16/professional/47-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87/" class="post-title-link" itemprop="url">计算机硬件-常见设备</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-16 23:35:41" itemprop="dateCreated datePublished" datetime="2026-03-16T23:35:41+08:00">2026-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-20 01:28:38" itemprop="dateModified" datetime="2026-03-20T01:28:38+08:00">2026-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">计算机硬件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>计算机I/O设备主要包含键盘、鼠标、扫描仪等输入设备，显示器、打印机等输出设备，通过USB等接口与主机相连，不同设备按性能与用途适配不同场景。</p>
+</blockquote>
+<div class="markmap-wrap" 
+      
+      
+    >
+      <script type="application/json">{"content":"&#x1f5a5;&#xfe0f; I/O&#x7cfb;&#x7edf;","children":[{"content":"&#x2328;&#xfe0f; &#x8f93;&#x5165;&#x8bbe;&#x5907;","children":[{"content":"&#x952e;&#x76d8;","children":[],"payload":{"tag":"li","lines":"2,3"}},{"content":"&#x1f5b1;&#xfe0f; &#x9f20;&#x6807;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x1f4f7; &#x626b;&#x63cf;&#x4eea;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x1f4f8; &#x6570;&#x7801;&#x76f8;&#x673a;","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"1,2"}},{"content":"&#x1f5a8;&#xfe0f; &#x8f93;&#x51fa;&#x8bbe;&#x5907;","children":[{"content":"&#x1f5a5;&#xfe0f; &#x663e;&#x793a;&#x5668;","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"&#x1f3ae; &#x663e;&#x5361;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x1f5a8;&#xfe0f; &#x6253;&#x5370;&#x673a;","children":[{"content":"&#x9488;&#x5f0f;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x6fc0;&#x5149;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x55b7;&#x58a8;","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"li","lines":"9,13"}}],"payload":{"tag":"h3","lines":"6,7"}},{"content":"&#x1f50c; I/O&#x63a5;&#x53e3;","children":[{"content":"&#x4e32;&#x884c;","children":[{"content":"USB","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"SATA","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"li","lines":"14,17"}},{"content":"&#x5e76;&#x884c;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x89c6;&#x9891;","children":[{"content":"VGA","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"HDMI","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"li","lines":"18,21"}}],"payload":{"tag":"h3","lines":"13,14"}}],"payload":{"tag":"h2","lines":"0,1"}}</script>
+      <script type="application/json">{}</script>
+    </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/16/professional/47-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/16/professional/46-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/16/professional/46-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">计算机硬件-存储系统</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-16 23:35:41" itemprop="dateCreated datePublished" datetime="2026-03-16T23:35:41+08:00">2026-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-20 01:09:52" itemprop="dateModified" datetime="2026-03-20T01:09:52+08:00">2026-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">计算机硬件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>本文系统梳理了计算机硬件中存储器层次结构、外存设备、主板核心组件、Cache原理及存储容量计算等核心知识点，总结了关键特性、性能指标与易错考点，便于快速复习备考。</p>
+</blockquote>
+<pre class="mermaid">graph LR
+    classDef cpu fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    classDef cache fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef mem fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef disk fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+
+    CPU[<b>CPU</b>]:::cpu
+    Cache[<b>Cache</b>]:::cache
+    主存[<b>主存</b>]:::mem
+    辅存[<b>辅存</b>]:::disk
+
+    CPU --&gt; Cache
+    Cache --&gt;|<b>硬件</b>| 主存
+    主存 --&gt;|<b>软硬件</b>| 辅存</pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/16/professional/46-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/45-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/08/professional/45-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">计算机硬件-基础概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:21:06" itemprop="dateCreated datePublished" datetime="2026-03-08T01:21:06+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-19 22:51:56" itemprop="dateModified" datetime="2026-03-19T22:51:56+08:00">2026-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">计算机硬件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>本文涵盖了比特、字节、编码、CPU原理及制程等核心考点。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/08/professional/45-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">软件工程-设计原则</a>
         </h2>
 
         <div class="post-meta-container">
@@ -243,7 +676,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 00:21:19" itemprop="dateModified" datetime="2026-03-18T00:21:19+08:00">2026-03-18</time>
+      <time title="修改时间：2026-03-18 22:31:33" itemprop="dateModified" datetime="2026-03-18T22:31:33+08:00">2026-03-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,11 +706,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
+          <blockquote>
+<p>面向对象六大设计原则（SOLID+迪米特）核心：<strong>职责单一、继承规范、依赖抽象、接口精简、少知少耦合、扩展开放修改封闭</strong>，最终实现代码<strong>高内聚、低耦合、易维护、易扩展</strong>。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -303,7 +742,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/42%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/42-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -321,7 +760,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/42%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">软件工程-面向对象-基础概念</a>
+          <a href="/2026/03/08/professional/42-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">软件工程-面向对象-基础概念</a>
         </h2>
 
         <div class="post-meta-container">
@@ -339,7 +778,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 00:21:26" itemprop="dateModified" datetime="2026-03-18T00:21:26+08:00">2026-03-18</time>
+      <time title="修改时间：2026-03-18 22:18:18" itemprop="dateModified" datetime="2026-03-18T22:18:18+08:00">2026-03-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -369,11 +808,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
+          <blockquote>
+<p>本文系统梳理了 Java 面向对象核心知识，从类与对象、方法、继承、多态、抽象类、接口六大要点，清晰对比其特性与使用规则，帮你快速掌握 OOP 核心逻辑。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/08/professional/42-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -399,7 +844,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/43%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -417,7 +862,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/43%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-面向对象-类图</a>
+          <a href="/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-面向对象-类图</a>
         </h2>
 
         <div class="post-meta-container">
@@ -435,7 +880,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 00:21:25" itemprop="dateModified" datetime="2026-03-18T00:21:25+08:00">2026-03-18</time>
+      <time title="修改时间：2026-03-18 22:25:48" itemprop="dateModified" datetime="2026-03-18T22:25:48+08:00">2026-03-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -465,11 +910,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
+          <blockquote>
+<p>本文梳理了面向对象类图的结构、六大类间关系（依赖、关联、泛化、实现、聚合、组合），并给出装饰器模式的核心结构与代码示例，方便快速掌握面向对象建模与设计模式考点。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -495,7 +946,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/34%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -513,7 +964,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/34%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">软件工程-UML-基础概念</a>
+          <a href="/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">软件工程-UML-基础概念</a>
         </h2>
 
         <div class="post-meta-container">
@@ -571,7 +1022,6 @@
       <script type="application/json">{"content":"UML","children":[{"content":"&#x4e8b;&#x52a1;","children":[{"content":"&#x7ed3;&#x6784;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"2,3"}},{"content":"&#x884c;&#x4e3a;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x5206;&#x7ec4;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x6ce8;&#x91ca;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"li","lines":"1,6"}},{"content":"&#x5173;&#x7cfb;","children":[{"content":"&#x5173;&#x8054;    &#x5b9e;&#x7ebf;  &#xff5c; A --- B","children":[{"content":"&#x805a;&#x5408;&#xff08;&#x6574;&#x4f53;&#x4e0e;&#x90e8;&#x5206;&#x7684;&#x5173;&#x7cfb;&#xff0c;&#x90e8;&#x5206;&#x53ef;&#x4ee5;&#x8131;&#x79bb;&#x6574;&#x4f53;&#x5b58;&#x5728;&#xff09;---&lt;&gt;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x7ec4;&#x5408;&#xff08;&#x6bd4;&#x805a;&#x5408;&#x66f4;&#x5f3a;&#xff0c;&#x8868;&#x793a;&#x6574;&#x4f53;&#x4e0e;&#x90e8;&#x5206;&#x7684;&#x5173;&#x7cfb;&#xff0c;&#x90e8;&#x5206;&#x4e0d;&#x80fd;&#x8131;&#x79bb;&#x6574;&#x4f53;&#x5b58;&#x5728;&#xff09;---*","children":[],"payload":{"tag":"li","lines":"9,10"}}],"payload":{"tag":"li","lines":"7,10"}},{"content":"&#x4f9d;&#x8d56;  &#x70b9;&#x7ebf;&#x7bad;&#x5934; &#xff5c; A ...&gt; B","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x6cdb;&#x5316;  &#x4e09;&#x89d2;&#x5b9e;&#x7ebf; &#xff5c; &#x5b50; ---|&gt; &#x7236;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x5b9e;&#x73b0;  &#x4e09;&#x89d2;&#x70b9;&#x7ebf; &#xff5c; &#x7c7b; ...|&gt; &#x63a5;&#x53e3;","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"li","lines":"6,13"}},{"content":"&#x56fe;","children":[{"content":"&#x7528;&#x4f8b;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x9759;&#x6001;&#x56fe;","children":[{"content":"&#x7c7b;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"&#x5305;&#x56fe;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x90e8;&#x7f72;&#x56fe;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"&#x6784;&#x4ef6;&#x56fe;","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"&#x5bf9;&#x8c61;&#x56fe;","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"li","lines":"15,21"}},{"content":"&#x52a8;&#x6001;&#x884c;&#x4e3a;&#x56fe;","children":[{"content":"&#x72b6;&#x6001;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"&#x6d3b;&#x52a8;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x4ea4;&#x4e92;&#x56fe;","children":[{"content":"&#x65f6;&#x5e8f;&#x56fe;","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"&#x901a;&#x4fe1;&#x56fe;","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"li","lines":"24,27"}}],"payload":{"tag":"li","lines":"21,27"}}],"payload":{"tag":"li","lines":"13,27"}}],"payload":{"tag":"li","lines":"0,27"}}</script>
       <script type="application/json">{}</script>
     </div>
-
 <pre class="mermaid">classDiagram
     class 类A
     class 类B
@@ -588,19 +1038,19 @@
 
     %% 1. 关联关系（长期持有）
     类A --> 类B : 单向关联
-    
+
     %% 2. 依赖关系（临时使用）
     类A ..> 类B : 依赖
-    
+
     %% 3. 泛化 / 继承
     父类 <|-- 子类 : 继承
-    
+
     %% 4. 实现 / 接口
     接口 <|.. 实现类 : 实现
-    
+
     %% 5. 聚合关系（可分离）
     整体 o-- 部分 : 聚合
-    
+
     %% 6. 组合关系（不可分离）
     整体 *-- 部分 : 组合
 
@@ -609,7 +1059,7 @@
     人 *-- 器官 : 组合（不可分离）</pre>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2026/03/08/2026/34%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/#more" rel="contents">
+              <a class="btn" href="/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -640,7 +1090,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/37%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/36-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E6%B4%BB%E5%8A%A8%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -658,313 +1108,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/37%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-类图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 14:49:34" itemprop="dateModified" datetime="2026-03-18T14:49:34+08:00">2026-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>UML类图通过<strong>类、属性、方法</strong>和<strong>泛化、实现、依赖、关联、聚合、组合</strong>六种关系，清晰描述系统静态结构，是软件分析设计与编码的核心工具。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2026/03/08/2026/37%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/38%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E9%A1%BA%E5%BA%8F%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Haru kong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小红叔de博客">
-      <meta itemprop="description" content="江苏事业编计算机岗位备考">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 小红叔de博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/38%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E9%A1%BA%E5%BA%8F%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-顺序图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 15:03:53" itemprop="dateModified" datetime="2026-03-18T15:03:53+08:00">2026-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="markmap-wrap" 
-      
-      
-    >
-      <script type="application/json">{"content":"","children":[{"content":"Hexo Next &#x4e3b;&#x9898;","children":[{"content":"&#x652f;&#x6301; Mermaid","children":[],"payload":{"tag":"li","lines":"1,2"}},{"content":"&#x652f;&#x6301; markmap &#x601d;&#x7ef4;&#x5bfc;&#x56fe;","children":[],"payload":{"tag":"li","lines":"2,3"}},{"content":"&#x5168;&#x5c40;&#x914d;&#x7f6e;","children":[],"payload":{"tag":"li","lines":"3,4"}}],"payload":{"tag":"li","lines":"0,4"}},{"content":"&#x601d;&#x7ef4;&#x5bfc;&#x56fe;","children":[{"content":"&#x53ef;&#x7f29;&#x653e;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"&#x53ef;&#x62d6;&#x62fd;","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"&#x8d85;&#x7f8e;&#x89c2;","children":[],"payload":{"tag":"li","lines":"7,8"}}],"payload":{"tag":"li","lines":"4,8"}}],"payload":{"tag":"ul","lines":"0,8"}}</script>
-      <script type="application/json">{}</script>
-    </div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/35%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%94%A8%E4%BE%8B%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Haru kong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小红叔de博客">
-      <meta itemprop="description" content="江苏事业编计算机岗位备考">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 小红叔de博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/35%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%94%A8%E4%BE%8B%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-用例图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 13:33:57" itemprop="dateModified" datetime="2026-03-18T13:33:57+08:00">2026-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>UML 用例图是软件需求分析中十分常用的工具，它主要用来表示参与者与系统功能之间的联系。本文将围绕用例图的基本元素、各类关系以及实际应用进行介绍，帮助我们快速掌握系统功能与交互逻辑。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2026/03/08/2026/35%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%94%A8%E4%BE%8B%E5%9B%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/36%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E6%B4%BB%E5%8A%A8%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Haru kong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小红叔de博客">
-      <meta itemprop="description" content="江苏事业编计算机岗位备考">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 小红叔de博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/36%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E6%B4%BB%E5%8A%A8%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-活动图</a>
+          <a href="/2026/03/08/professional/36-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E6%B4%BB%E5%8A%A8%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-活动图</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1029,15 +1173,17 @@
 <li>✅ 表现形式类似传统流程图，可用于<strong>业务建模</strong>（详述业务用例执行过程）和<strong>设计建模</strong>（描述操作流程）。</li>
 </ul>
 <hr>
-<h2 id="三、活动图的基本要素"><a href="#三、活动图的基本要素" class="headerlink" title="三、活动图的基本要素"></a>三、活动图的基本要素</h2><table>
+<h2 id="三、活动图的基本要素"><a href="#三、活动图的基本要素" class="headerlink" title="三、活动图的基本要素"></a>三、活动图的基本要素</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>要素</th>
-<th>符号&#x2F;形态</th>
+<th>符号/形态</th>
 <th>作用说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>动作（Activity）</strong></td>
 <td>圆角矩形</td>
 <td>代表原子操作，如发送消息、数学运算、对象创建等（例：<code>x=5</code>）</td>
@@ -1048,8 +1194,8 @@
 <td>表示动作间的转换，箭头指向转入方向（例：下订单 → 生成订单）</td>
 </tr>
 <tr>
-<td><strong>开始&#x2F;终止</strong></td>
-<td>实心圆&#x2F;环形圆</td>
+<td><strong>开始/终止</strong></td>
+<td>实心圆/环形圆</td>
 <td>标记业务流程的起点与终点</td>
 </tr>
 <tr>
@@ -1064,52 +1210,55 @@
 </tr>
 <tr>
 <td><strong>泳道</strong></td>
-<td>垂直&#x2F;水平分区</td>
-<td>划分不同角色&#x2F;对象的职责边界（例：学生、监考老师）</td>
+<td>垂直/水平分区</td>
+<td>划分不同角色/对象的职责边界（例：学生、监考老师）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <hr>
 <h2 id="四、活动图示例解析"><a href="#四、活动图示例解析" class="headerlink" title="四、活动图示例解析"></a>四、活动图示例解析</h2><ol>
 <li><p><strong>日常起床流程</strong></p>
 <ul>
 <li>核心逻辑：看表 → 判断是否到起床时间 → 起床后并发执行洗脸、刷牙、热牛奶 → 汇合后吃早餐 → 出门。</li>
-<li>体现了<strong>判断节点</strong>与<strong>分叉&#x2F;汇合</strong>的应用。</li>
+<li>体现了<strong>判断节点</strong>与<strong>分叉/汇合</strong>的应用。<pre class="mermaid">   graph TD
+A[看表] --> B{时间到了吗?}
+B -- 否 --> C[继续睡觉]
+B -- 是 --> D[起床]
+D --> F[同时做]
+F --> G[洗脸]
+F --> H[刷牙]
+F --> I[热牛奶]
+G --> J[汇合]
+H --> J
+I --> J
+J --> K[吃早餐]
+K --> L[出门]</pre>
+</li>
 </ul>
-<pre class="mermaid">   graph TD
- A[看表] --> B{时间到了吗?}
- B -- 否 --> C[继续睡觉]
- B -- 是 --> D[起床]
- D --> F[同时做]
- F --> G[洗脸]
- F --> H[刷牙]
- F --> I[热牛奶]
- G --> J[汇合]
- H --> J
- I --> J
- J --> K[吃早餐]
- K --> L[出门]</pre>
 </li>
 <li><p><strong>学生进场考试流程</strong></p>
 <ul>
 <li>泳道划分：学生侧（进入考场、对号入座、开始答题）与监考老师侧（检查证件、发考卷）。</li>
-<li>体现了<strong>泳道</strong>与<strong>并发流程</strong>的建模，清晰区分不同角色的操作。</li>
+<li>体现了<strong>泳道</strong>与<strong>并发流程</strong>的建模，清晰区分不同角色的操作。<pre class="mermaid">      graph TD
+   subgraph 学生
+       A[进入考场]
+       B[对号入座]
+       C[等待试卷]
+       D[开始答题]
+   end
+   subgraph 监考老师
+       E[检查证件]
+       F[发放试卷]
+   end
+   A --> B
+   B --> E
+   E --> F
+   F --> C
+   C --> D</pre>
+</li>
 </ul>
- <pre class="mermaid">      graph TD
-     subgraph 学生
-         A[进入考场]
-         B[对号入座]
-         C[等待试卷]
-         D[开始答题]
-     end
-     subgraph 监考老师
-         E[检查证件]
-         F[发放试卷]
-     end
-     A --> B
-     B --> E
-     E --> F
-     F --> C
-     C --> D</pre></li>
+</li>
 </ol>
 <hr>
 <h2 id="五、关键注意事项"><a href="#五、关键注意事项" class="headerlink" title="五、关键注意事项"></a>五、关键注意事项</h2><ul>
@@ -1148,7 +1297,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/39%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%8D%8F%E4%BD%9C%E5%9B%BE/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/37-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1166,7 +1315,109 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/39%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%8D%8F%E4%BD%9C%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-协作图</a>
+          <a href="/2026/03/08/professional/37-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-类图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-18 14:49:34" itemprop="dateModified" datetime="2026-03-18T14:49:34+08:00">2026-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>UML类图通过<strong>类、属性、方法</strong>和<strong>泛化、实现、依赖、关联、聚合、组合</strong>六种关系，清晰描述系统静态结构，是软件分析设计与编码的核心工具。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/03/08/professional/37-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%B1%BB%E5%9B%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/39-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%8D%8F%E4%BD%9C%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/08/professional/39-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%8D%8F%E4%BD%9C%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-协作图</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1242,118 +1493,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/2026/40%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%8A%B6%E6%80%81%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Haru kong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小红叔de博客">
-      <meta itemprop="description" content="江苏事业编计算机岗位备考">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 小红叔de博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/08/2026/40%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%8A%B6%E6%80%81%E5%9B%BE/" class="post-title-link" itemprop="url">软件工程-UML-状态图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 14:56:07" itemprop="dateModified" datetime="2026-03-18T14:56:07+08:00">2026-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>状态图是描述单个对象生命周期内所有状态及触发状态转移的事件、动作的 UML 动态视图，通过初态、终态、普通状态与带条件的转移清晰展示对象行为变化。</p>
-</blockquote>
-<pre class="mermaid">stateDiagram-v2
-    [*] --> 可出借 : 图书入库
-    可出借 --> 预约 : 预定
-    预约 --> 可出借 : 取消预定/预定过期
-    可出借 --> 借出 : 借出
-    借出 --> 可出借 : 归还
-    可出借 --> 下架 : 破损/丢失
-    下架 --> [*] : 出库</pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2026/03/08/2026/40%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E7%8A%B6%E6%80%81%E5%9B%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

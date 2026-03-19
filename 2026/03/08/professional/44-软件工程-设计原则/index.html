@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="面向对象六大设计原则（SOLID+迪米特）核心：职责单一、继承规范、依赖抽象、接口精简、少知少耦合、扩展开放修改封闭，最终实现代码高内聚、低耦合、易维护、易扩展。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程-设计原则">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="面向对象六大设计原则（SOLID+迪米特）核心：职责单一、继承规范、依赖抽象、接口精简、少知少耦合、扩展开放修改封闭，最终实现代码高内聚、低耦合、易维护、易扩展。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-07T17:20:50.000Z">
+<meta property="article:modified_time" content="2026-03-18T14:31:33.552Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="设计原则">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/","path":"2026/03/08/professional/44-软件工程-设计原则/","title":"软件工程-设计原则"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>软件工程-设计原则 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%9A-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99%EF%BC%88SOLID-LoD%EF%BC%89%E5%AE%8C%E6%95%B4%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">📚 面向对象设计六大原则（SOLID+LoD）完整解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99-SRP"><span class="nav-number">1.1.</span> <span class="nav-text">1. 单一职责原则 (SRP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99-LSP"><span class="nav-number">1.2.</span> <span class="nav-text">2. 里氏替换原则 (LSP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99-DIP"><span class="nav-number">1.3.</span> <span class="nav-text">3. 依赖倒置原则 (DIP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99-ISP"><span class="nav-number">1.4.</span> <span class="nav-text">4. 接口隔离原则 (ISP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99-LoD-%E6%9C%80%E5%B0%91%E7%9F%A5%E8%AF%86%E5%8E%9F%E5%88%99-LKP"><span class="nav-number">1.5.</span> <span class="nav-text">5. 迪米特法则 (LoD) &#x2F; 最少知识原则 (LKP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99-OCP"><span class="nav-number">1.6.</span> <span class="nav-text">6. 开放封闭原则 (OCP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8C-%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93%E8%A1%A8"><span class="nav-number">1.7.</span> <span class="nav-text">📌 六大原则总结表</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/44-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="软件工程-设计原则 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件工程-设计原则
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:20:50" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:50+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-18 22:31:33" itemprop="dateModified" datetime="2026-03-18T22:31:33+08:00">2026-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">设计原则</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>面向对象六大设计原则（SOLID+迪米特）核心：<strong>职责单一、继承规范、依赖抽象、接口精简、少知少耦合、扩展开放修改封闭</strong>，最终实现代码<strong>高内聚、低耦合、易维护、易扩展</strong>。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h1 id="📚-面向对象设计六大原则（SOLID-LoD）完整解析"><a href="#📚-面向对象设计六大原则（SOLID-LoD）完整解析" class="headerlink" title="📚 面向对象设计六大原则（SOLID+LoD）完整解析"></a>📚 面向对象设计六大原则（SOLID+LoD）完整解析</h1><h2 id="1-单一职责原则-SRP"><a href="#1-单一职责原则-SRP" class="headerlink" title="1. 单一职责原则 (SRP)"></a>1. 单一职责原则 (SRP)</h2><p><strong>定义</strong>：一个类应该只有<strong>一个引起变化的原因</strong>，即只承担一项职责。<br><strong>核心思想</strong>：降低类的复杂度，让职责边界清晰，避免因一个功能变更影响其他 unrelated 功能。<br><strong>问题示例</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ 坏设计：IPhone 接口同时承担通话（dial/hangup）和数据传输（chat）职责</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IPhone</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dial</span><span class="params">(String phoneNumber)</span>;  <span class="comment">// 通话</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">chat</span><span class="params">(Object o)</span>;            <span class="comment">// 数据传输</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">hangup</span><span class="params">()</span>;                  <span class="comment">// 通话</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>优化方案</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 好设计：拆分接口，各自承担单一职责</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IConnectionManager</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dial</span><span class="params">(String phoneNumber)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">hangup</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IDataTransfer</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">chat</span><span class="params">(Object o)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IPhone</span> <span class="keyword">implements</span> <span class="title class_">IConnectionManager</span>, IDataTransfer &#123; <span class="comment">/* 实现 */</span> &#125;</span><br></pre></td></tr></table></figure><br><strong>实践意义</strong>：便于单元测试、降低耦合、提高代码可维护性。</p>
+<hr>
+<h2 id="2-里氏替换原则-LSP"><a href="#2-里氏替换原则-LSP" class="headerlink" title="2. 里氏替换原则 (LSP)"></a>2. 里氏替换原则 (LSP)</h2><p><strong>定义</strong>：所有引用基类（父类）的地方，必须能<strong>透明地使用其子类对象</strong>，且不改变程序预期行为。<br><strong>核心思想</strong>：子类必须完全实现父类的抽象方法，且行为符合父类契约；子类可以扩展功能，但不能破坏父类原有约定。<br><strong>问题示例</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ 坏设计：ToyGun 继承 AbstractGun，但无法实现 shoot() 方法，破坏契约</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ToyGun</span> <span class="keyword">extends</span> <span class="title class_">AbstractGun</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shoot</span><span class="params">()</span> &#123; <span class="comment">/* 空实现，玩具枪不能射击 */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当 Soldier 使用 ToyGun 时，killEnemy() 会行为异常</span></span><br></pre></td></tr></table></figure><br><strong>优化方案</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 好设计：ToyGun 脱离继承，通过关联/接口方式复用代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractToy</span> &#123; <span class="comment">/* 玩具通用功能 */</span> &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ToyGun</span> <span class="keyword">extends</span> <span class="title class_">AbstractToy</span> &#123; <span class="comment">/* 仅实现玩具功能 */</span> &#125;</span><br></pre></td></tr></table></figure><br><strong>实践规则</strong>：</p>
+<ol>
+<li>子类必须实现父类抽象方法，行为符合父类预期。</li>
+<li>子类重写非抽象方法时，不能破坏父类契约。</li>
+<li>子类可以有自己的特有方法。</li>
+<li>若子类无法满足父类契约，应使用接口或分层设计替代继承。<br><strong>核心意义</strong>：保证多态可靠性，让代码复用更安全，提升可维护性。</li>
+</ol>
+<hr>
+<h2 id="3-依赖倒置原则-DIP"><a href="#3-依赖倒置原则-DIP" class="headerlink" title="3. 依赖倒置原则 (DIP)"></a>3. 依赖倒置原则 (DIP)</h2><p><strong>定义</strong>：</p>
+<ul>
+<li>高层模块不应该依赖低层模块，两者都应该依赖<strong>抽象</strong>。</li>
+<li>抽象不应该依赖细节，细节应该依赖抽象。<br><strong>核心思想</strong>：面向接口编程，通过抽象解耦高层与低层模块，让代码更易扩展。<br><strong>问题示例</strong>：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ 坏设计：Driver 直接依赖 Benz 类，无法灵活切换其他车型</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Driver</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">(Benz benz)</span> &#123; benz.run(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>优化方案</strong>：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 好设计：依赖 ICar 接口，可兼容任何实现 ICar 的车型</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IDriver</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">(ICar car)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ICar</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Driver</span> <span class="keyword">implements</span> <span class="title class_">IDriver</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">(ICar car)</span> &#123; car.run(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Benz</span> <span class="keyword">implements</span> <span class="title class_">ICar</span> &#123; <span class="comment">/* 实现 */</span> &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BMW</span> <span class="keyword">implements</span> <span class="title class_">ICar</span> &#123; <span class="comment">/* 实现 */</span> &#125;</span><br></pre></td></tr></table></figure>
+<strong>实践意义</strong>：降低模块间耦合，方便替换实现类，提升系统弹性。</li>
+</ul>
+<hr>
+<h2 id="4-接口隔离原则-ISP"><a href="#4-接口隔离原则-ISP" class="headerlink" title="4. 接口隔离原则 (ISP)"></a>4. 接口隔离原则 (ISP)</h2><p><strong>定义</strong>：客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应建立在<strong>最小接口</strong>上。<br><strong>核心思想</strong>：避免“胖接口”，将大接口拆分为多个细粒度小接口，让客户端只依赖必要方法。<br><strong>问题示例</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ 坏设计：IPettyGirl 接口包含所有方法，Searcher 可能只需要部分方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IPettyGirl</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">goodLooking</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">niceFigure</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">greatTemperament</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>优化方案</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 好设计：拆分为多个细粒度接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IGoodBodyGirl</span> &#123; <span class="keyword">void</span> <span class="title function_">goodLooking</span><span class="params">()</span>; &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">INiceFigure</span> &#123; <span class="keyword">void</span> <span class="title function_">niceFigure</span><span class="params">()</span>; &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IGreatTemperamentGirl</span> &#123; <span class="keyword">void</span> <span class="title function_">greatTemperament</span><span class="params">()</span>; &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PettyGirl</span> <span class="keyword">implements</span> <span class="title class_">IGoodBodyGirl</span>, INiceFigure, IGreatTemperamentGirl &#123; <span class="comment">/* 实现 */</span> &#125;</span><br></pre></td></tr></table></figure><br><strong>实践意义</strong>：避免接口污染，减少不必要依赖，让代码更灵活。</p>
+<hr>
+<h2 id="5-迪米特法则-LoD-最少知识原则-LKP"><a href="#5-迪米特法则-LoD-最少知识原则-LKP" class="headerlink" title="5. 迪米特法则 (LoD) / 最少知识原则 (LKP)"></a>5. 迪米特法则 (LoD) / 最少知识原则 (LKP)</h2><p><strong>定义</strong>：一个对象应当对其他对象<strong>尽可能少的了解</strong>，只和“直接朋友”通信。<br><strong>核心思想</strong>：减少对象间交互，降低耦合，避免“牵一发而动全身”。<br><strong>问题示例</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌ 坏设计：InstallSoftware 直接调用 Wizard 的多个内部方法，过度了解 Wizard 细节</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InstallSoftware</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">installWizard</span><span class="params">(Wizard wizard)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">first</span> <span class="operator">=</span> wizard.first();</span><br><span class="line">        <span class="keyword">if</span> (first &gt; <span class="number">50</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">second</span> <span class="operator">=</span> wizard.second();</span><br><span class="line">            <span class="keyword">if</span> (second &gt; <span class="number">50</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">third</span> <span class="operator">=</span> wizard.third();</span><br><span class="line">                <span class="keyword">if</span> (third &gt; <span class="number">50</span>) wizard.first();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>优化方案</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 好设计：Wizard 封装内部逻辑，InstallSoftware 只调用一个公开方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Wizard</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">first</span><span class="params">()</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">second</span><span class="params">()</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">third</span><span class="params">()</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">installWizard</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">first</span> <span class="operator">=</span> <span class="built_in">this</span>.first();</span><br><span class="line">        <span class="keyword">if</span> (first &gt; <span class="number">50</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">second</span> <span class="operator">=</span> <span class="built_in">this</span>.second();</span><br><span class="line">            <span class="keyword">if</span> (second &gt; <span class="number">50</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">third</span> <span class="operator">=</span> <span class="built_in">this</span>.third();</span><br><span class="line">                <span class="keyword">if</span> (third &gt; <span class="number">50</span>) <span class="built_in">this</span>.first();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InstallSoftware</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">installWizard</span><span class="params">(Wizard wizard)</span> &#123;</span><br><span class="line">        wizard.installWizard();  <span class="comment">// 仅调用公开方法，不了解内部细节</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>实践意义</strong>：降低类之间的耦合度，提高代码的可维护性和稳定性。</p>
+<hr>
+<h2 id="6-开放封闭原则-OCP"><a href="#6-开放封闭原则-OCP" class="headerlink" title="6. 开放封闭原则 (OCP)"></a>6. 开放封闭原则 (OCP)</h2><p><strong>定义</strong>：软件实体（类、模块、函数等）应该<strong>对扩展开放，对修改关闭</strong>。<br><strong>核心思想</strong>：需求变更时，通过新增代码扩展功能，而非修改现有代码，避免影响已有功能。<br><strong>示例</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅ 基础接口：IBook</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IBook</span> &#123;</span><br><span class="line">    String <span class="title function_">getName</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getPrice</span><span class="params">()</span>;</span><br><span class="line">    String <span class="title function_">getAuthor</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ✅ 实现类：NovelBook</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NovelBook</span> <span class="keyword">implements</span> <span class="title class_">IBook</span> &#123; <span class="comment">/* 实现 */</span> &#125;</span><br><span class="line"><span class="comment">// ✅ 扩展类：OffNovelBook（新增打折功能，不修改 NovelBook）</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OffNovelBook</span> <span class="keyword">extends</span> <span class="title class_">NovelBook</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">OffNovelBook</span><span class="params">(String name, <span class="type">int</span> price, String author)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(name, price, author);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getPrice</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">selfPrice</span> <span class="operator">=</span> <span class="built_in">super</span>.getPrice();</span><br><span class="line">        <span class="keyword">if</span> (selfPrice &gt; <span class="number">4000</span>) <span class="keyword">return</span> selfPrice * <span class="number">80</span> / <span class="number">100</span>; <span class="comment">// 8折</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> selfPrice * <span class="number">90</span> / <span class="number">100</span>; <span class="comment">// 9折</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>实践意义</strong>：保证系统稳定性，便于功能迭代和复用。</p>
+<hr>
+<h2 id="📌-六大原则总结表"><a href="#📌-六大原则总结表" class="headerlink" title="📌 六大原则总结表"></a>📌 六大原则总结表</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">原则</th>
+<th style="text-align:left">英文缩写</th>
+<th style="text-align:left">核心关注点</th>
+<th style="text-align:left">设计目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">单一职责原则</td>
+<td style="text-align:left">SRP</td>
+<td style="text-align:left">类的职责边界</td>
+<td style="text-align:left">降低复杂度，清晰分工</td>
+</tr>
+<tr>
+<td style="text-align:left">里氏替换原则</td>
+<td style="text-align:left">LSP</td>
+<td style="text-align:left">继承契约</td>
+<td style="text-align:left">保证多态可靠，复用安全</td>
+</tr>
+<tr>
+<td style="text-align:left">依赖倒置原则</td>
+<td style="text-align:left">DIP</td>
+<td style="text-align:left">依赖方向</td>
+<td style="text-align:left">面向抽象，解耦高层与低层</td>
+</tr>
+<tr>
+<td style="text-align:left">接口隔离原则</td>
+<td style="text-align:left">ISP</td>
+<td style="text-align:left">接口粒度</td>
+<td style="text-align:left">最小依赖，避免接口污染</td>
+</tr>
+<tr>
+<td style="text-align:left">迪米特法则</td>
+<td style="text-align:left">LoD</td>
+<td style="text-align:left">对象交互</td>
+<td style="text-align:left">最少知识，降低耦合</td>
+</tr>
+<tr>
+<td style="text-align:left">开放封闭原则</td>
+<td style="text-align:left">OCP</td>
+<td style="text-align:left">可扩展性</td>
+<td style="text-align:left">对扩展开放，对修改关闭</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>💡 <strong>学习建议</strong>：<br>这些原则并非孤立存在，实际开发中往往需要<strong>组合使用</strong>。比如：</p>
+<ul>
+<li>先通过<strong>单一职责</strong>和<strong>接口隔离</strong>拆分模块，</li>
+<li>再用<strong>依赖倒置</strong>和<strong>里氏替换</strong>建立抽象关系，</li>
+<li>最后通过<strong>迪米特法则</strong>减少耦合，用<strong>开放封闭原则</strong>保证扩展性。</li>
+</ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag"># 设计原则</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/42-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="prev" title="软件工程-面向对象-基础概念">
+                  <i class="fa fa-angle-left"></i> 软件工程-面向对象-基础概念
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/45-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="next" title="计算机硬件-基础概念">
+                  计算机硬件-基础概念 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文整理了操作系统速记清单      序号 核心考点口诀     1 软件三要素：程序、数据、文档   2 最接近硬件的系统软件：BIOS   3 进程最基本特征：动态性   4 进程唯一标志：PCB   5 进程三态：就绪、运行、阻塞   6 死锁四条件：互斥、请求保持、不剥夺、环路等待   7 虚拟内存：物理内存+硬盘页面文件   8 文件最基本功能：按名存取   9 相对路径：. 代表当前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机操作系统-速记清单">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/16/professional/49-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="本文整理了操作系统速记清单      序号 核心考点口诀     1 软件三要素：程序、数据、文档   2 最接近硬件的系统软件：BIOS   3 进程最基本特征：动态性   4 进程唯一标志：PCB   5 进程三态：就绪、运行、阻塞   6 死锁四条件：互斥、请求保持、不剥夺、环路等待   7 虚拟内存：物理内存+硬盘页面文件   8 文件最基本功能：按名存取   9 相对路径：. 代表当前">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-16T15:36:32.000Z">
+<meta property="article:modified_time" content="2026-03-16T17:32:38.732Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="速记清单">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/16/professional/49-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/16/professional/49-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95/","path":"2026/03/16/professional/49-计算机操作系统-速记清单/","title":"计算机操作系统-速记清单"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机操作系统-速记清单 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95"><span class="nav-number">1.</span> <span class="nav-text">计算机操作系统 - 速记清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、计算机软件基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83"><span class="nav-number">1.2.</span> <span class="nav-text">二、操作系统核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">三、进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%AD%BB%E9%94%81"><span class="nav-number">1.4.</span> <span class="nav-text">四、死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">1.5.</span> <span class="nav-text">五、存储管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">1.6.</span> <span class="nav-text">六、文件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BD%9C%E4%B8%9A%E7%AE%A1%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">七、作业管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E4%B8%8E-SPOOLing"><span class="nav-number">1.8.</span> <span class="nav-text">八、设备管理与 SPOOLing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E6%A0%B8%E5%BF%83%E8%80%83%E7%82%B9%E9%80%9F%E8%AE%B0"><span class="nav-number">1.9.</span> <span class="nav-text">九、核心考点速记</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/16/professional/49-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机操作系统-速记清单 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机操作系统-速记清单
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-16 23:36:32" itemprop="dateCreated datePublished" datetime="2026-03-16T23:36:32+08:00">2026-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-17 01:32:38" itemprop="dateModified" datetime="2026-03-17T01:32:38+08:00">2026-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文整理了操作系统速记清单</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>核心考点口诀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>软件三要素：程序、数据、文档</td>
+</tr>
+<tr>
+<td>2</td>
+<td>最接近硬件的系统软件：BIOS</td>
+</tr>
+<tr>
+<td>3</td>
+<td>进程最基本特征：动态性</td>
+</tr>
+<tr>
+<td>4</td>
+<td>进程唯一标志：PCB</td>
+</tr>
+<tr>
+<td>5</td>
+<td>进程三态：就绪、运行、阻塞</td>
+</tr>
+<tr>
+<td>6</td>
+<td>死锁四条件：互斥、请求保持、不剥夺、环路等待</td>
+</tr>
+<tr>
+<td>7</td>
+<td>虚拟内存：物理内存+硬盘页面文件</td>
+</tr>
+<tr>
+<td>8</td>
+<td>文件最基本功能：按名存取</td>
+</tr>
+<tr>
+<td>9</td>
+<td>相对路径：. 代表当前目录</td>
+</tr>
+<tr>
+<td>10</td>
+<td>最基本调度：进程调度</td>
+</tr>
+<tr>
+<td>11</td>
+<td>缓冲作用：缓和速度不匹配，减少中断，提高并行</td>
+</tr>
+<tr>
+<td>12</td>
+<td>SPOOLing：独占设备变共享，典型应用打印机</td>
+</tr>
+<tr>
+<td>13</td>
+<td>分时系统特征：多路、交互、独立、及时</td>
+</tr>
+<tr>
+<td>14</td>
+<td>实时系统特征：及时响应、高可靠性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span id="more"></span>
+<h1 id="计算机操作系统-速记清单"><a href="#计算机操作系统-速记清单" class="headerlink" title="计算机操作系统 - 速记清单"></a>计算机操作系统 - 速记清单</h1><h2 id="一、计算机软件基础"><a href="#一、计算机软件基础" class="headerlink" title="一、计算机软件基础"></a>一、计算机软件基础</h2><ul>
+<li>软件 = 程序 + 数据 + 文档</li>
+<li>系统软件：操作系统、编译器、DBMS、BIOS（最接近硬件）</li>
+<li>应用软件：基于系统软件运行</li>
+<li>著作权：署名/修改/保护完整权永久保护；公民/法人保护期 50 年</li>
+</ul>
+<h2 id="二、操作系统核心"><a href="#二、操作系统核心" class="headerlink" title="二、操作系统核心"></a>二、操作系统核心</h2><ul>
+<li>作用：管理资源、提供人机界面、支撑应用程序</li>
+<li>分类：批处理、分时（多路、交互、独立、及时）、实时（及时响应、高可靠）</li>
+</ul>
+<h2 id="三、进程管理"><a href="#三、进程管理" class="headerlink" title="三、进程管理"></a>三、进程管理</h2><ul>
+<li>进程特征：动态性（最基本）、并发性、独立性、异步性</li>
+<li>唯一标志：PCB</li>
+<li>三态：就绪 ↔ 运行 → 阻塞 → 就绪</li>
+<li>调度：进程调度（最基本），时间片轮转</li>
+</ul>
+<h2 id="四、死锁"><a href="#四、死锁" class="headerlink" title="四、死锁"></a>四、死锁</h2><ul>
+<li>原因：竞争不可剥夺资源、推进顺序非法</li>
+<li>四条件：互斥、请求保持、不剥夺、环路等待</li>
+<li>处理：预防、避免、检测、解除</li>
+</ul>
+<h2 id="五、存储管理"><a href="#五、存储管理" class="headerlink" title="五、存储管理"></a>五、存储管理</h2><ul>
+<li>虚拟存储器 = 物理内存 + 硬盘页面文件</li>
+</ul>
+<h2 id="六、文件管理"><a href="#六、文件管理" class="headerlink" title="六、文件管理"></a>六、文件管理</h2><ul>
+<li>最基本功能：按名存取</li>
+<li>相对路径 <code>.</code> 代表当前目录</li>
+</ul>
+<h2 id="七、作业管理"><a href="#七、作业管理" class="headerlink" title="七、作业管理"></a>七、作业管理</h2><ul>
+<li>三级调度：高级（作业）、中级（内存）、低级（进程）</li>
+</ul>
+<h2 id="八、设备管理与-SPOOLing"><a href="#八、设备管理与-SPOOLing" class="headerlink" title="八、设备管理与 SPOOLing"></a>八、设备管理与 SPOOLing</h2><ul>
+<li>缓冲目的：缓和速度不匹配、减少中断、提高并行性</li>
+<li>SPOOLing（假脱机）：将独占设备虚拟为共享设备</li>
+<li>典型应用：共享打印机</li>
+</ul>
+<h2 id="九、核心考点速记"><a href="#九、核心考点速记" class="headerlink" title="九、核心考点速记"></a>九、核心考点速记</h2><ol>
+<li>软件 = 程序 + 数据 + 文档</li>
+<li>最接近硬件：BIOS</li>
+<li>进程最基本特征：动态性，标志：PCB</li>
+<li>死锁四条件：互斥、请求保持、不剥夺、环路等待</li>
+<li>虚拟内存 = 物理内存 + 页面文件</li>
+<li>文件系统最基本功能：按名存取</li>
+<li>进程调度是最基本调度</li>
+<li>缓冲：解决速度不匹配、提高并行</li>
+<li>SPOOLing：独占 → 共享设备，代表：打印机</li>
+</ol>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+              <a href="/tags/%E9%80%9F%E8%AE%B0%E6%B8%85%E5%8D%95/" rel="tag"># 速记清单</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/16/professional/47-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87/" rel="prev" title="计算机硬件-常见设备">
+                  <i class="fa fa-angle-left"></i> 计算机硬件-常见设备
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/16/professional/48-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/" rel="next" title="计算机操作系统-核心知识">
+                  计算机操作系统-核心知识 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

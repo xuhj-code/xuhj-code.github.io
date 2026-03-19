@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文         {&quot;content&quot;:&quot;UML&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;&#x4e8b;&#x52a1;&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;&#x7ed3;&#x6784;&#x4e8b;&#x52a1;&quot;,&quot;children&quot;:[],&quot;payload&quot;:{&quot;tag&quot;:&quot;li&quot;,&quot;lines&quot;:&quot;2,3&quot;}},{&quot;content&quot;:&quot;&amp;#x884c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程-UML-基础概念">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="本文         {&quot;content&quot;:&quot;UML&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;&#x4e8b;&#x52a1;&quot;,&quot;children&quot;:[{&quot;content&quot;:&quot;&#x7ed3;&#x6784;&#x4e8b;&#x52a1;&quot;,&quot;children&quot;:[],&quot;payload&quot;:{&quot;tag&quot;:&quot;li&quot;,&quot;lines&quot;:&quot;2,3&quot;}},{&quot;content&quot;:&quot;&amp;#x884c">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-07T17:20:05.000Z">
+<meta property="article:modified_time" content="2026-03-17T17:26:16.139Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="UML">
+<meta property="article:tag" content="基础概念">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/","path":"2026/03/08/professional/34-软件工程-UML-基础概念/","title":"软件工程-UML-基础概念"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>软件工程-UML-基础概念 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81UML-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、UML 概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E6%A8%A1%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">二、建模的意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81UML-%E7%9A%84%E6%A0%B8%E5%BF%83%E7%89%B9%E7%82%B9%E2%AD%90%EF%B8%8F"><span class="nav-number">3.</span> <span class="nav-text">三、UML 的核心特点⭐️</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81UML-%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E6%A0%B8%E5%BF%83%E6%9E%84%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">四、UML 概念模型核心构成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%8B%E7%89%A9%EF%BC%88%E5%85%83%E7%B4%A0%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">1. 事物（元素）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%B3%E7%B3%BB"><span class="nav-number">4.2.</span> <span class="nav-text">2. 关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%9B%BE"><span class="nav-number">4.3.</span> <span class="nav-text">3. 图</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/08/professional/34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="软件工程-UML-基础概念 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件工程-UML-基础概念
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-08 01:20:05" itemprop="dateCreated datePublished" datetime="2026-03-08T01:20:05+08:00">2026-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-18 01:26:16" itemprop="dateModified" datetime="2026-03-18T01:26:16+08:00">2026-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文</p>
+</blockquote>
+<div class="markmap-wrap" 
+      
+      
+    >
+      <script type="application/json">{"content":"UML","children":[{"content":"&#x4e8b;&#x52a1;","children":[{"content":"&#x7ed3;&#x6784;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"2,3"}},{"content":"&#x884c;&#x4e3a;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x5206;&#x7ec4;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x6ce8;&#x91ca;&#x4e8b;&#x52a1;","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"li","lines":"1,6"}},{"content":"&#x5173;&#x7cfb;","children":[{"content":"&#x5173;&#x8054;    &#x5b9e;&#x7ebf;  &#xff5c; A --- B","children":[{"content":"&#x805a;&#x5408;&#xff08;&#x6574;&#x4f53;&#x4e0e;&#x90e8;&#x5206;&#x7684;&#x5173;&#x7cfb;&#xff0c;&#x90e8;&#x5206;&#x53ef;&#x4ee5;&#x8131;&#x79bb;&#x6574;&#x4f53;&#x5b58;&#x5728;&#xff09;---&lt;&gt;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x7ec4;&#x5408;&#xff08;&#x6bd4;&#x805a;&#x5408;&#x66f4;&#x5f3a;&#xff0c;&#x8868;&#x793a;&#x6574;&#x4f53;&#x4e0e;&#x90e8;&#x5206;&#x7684;&#x5173;&#x7cfb;&#xff0c;&#x90e8;&#x5206;&#x4e0d;&#x80fd;&#x8131;&#x79bb;&#x6574;&#x4f53;&#x5b58;&#x5728;&#xff09;---*","children":[],"payload":{"tag":"li","lines":"9,10"}}],"payload":{"tag":"li","lines":"7,10"}},{"content":"&#x4f9d;&#x8d56;  &#x70b9;&#x7ebf;&#x7bad;&#x5934; &#xff5c; A ...&gt; B","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x6cdb;&#x5316;  &#x4e09;&#x89d2;&#x5b9e;&#x7ebf; &#xff5c; &#x5b50; ---|&gt; &#x7236;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x5b9e;&#x73b0;  &#x4e09;&#x89d2;&#x70b9;&#x7ebf; &#xff5c; &#x7c7b; ...|&gt; &#x63a5;&#x53e3;","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"li","lines":"6,13"}},{"content":"&#x56fe;","children":[{"content":"&#x7528;&#x4f8b;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x9759;&#x6001;&#x56fe;","children":[{"content":"&#x7c7b;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"&#x5305;&#x56fe;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x90e8;&#x7f72;&#x56fe;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"&#x6784;&#x4ef6;&#x56fe;","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"&#x5bf9;&#x8c61;&#x56fe;","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"li","lines":"15,21"}},{"content":"&#x52a8;&#x6001;&#x884c;&#x4e3a;&#x56fe;","children":[{"content":"&#x72b6;&#x6001;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"&#x6d3b;&#x52a8;&#x56fe;&#x2b50;&#xfe0f;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x4ea4;&#x4e92;&#x56fe;","children":[{"content":"&#x65f6;&#x5e8f;&#x56fe;","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"&#x901a;&#x4fe1;&#x56fe;","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"li","lines":"24,27"}}],"payload":{"tag":"li","lines":"21,27"}}],"payload":{"tag":"li","lines":"13,27"}}],"payload":{"tag":"li","lines":"0,27"}}</script>
+      <script type="application/json">{}</script>
+    </div>
+<pre class="mermaid">classDiagram
+    class 类A
+    class 类B
+    class 父类
+    class 子类
+    class 接口
+    class 实现类
+    class 整体
+    class 部分
+    class 班级
+    class 学生
+    class 人
+    class 器官
+
+    %% 1. 关联关系（长期持有）
+    类A --> 类B : 单向关联
+
+    %% 2. 依赖关系（临时使用）
+    类A ..> 类B : 依赖
+
+    %% 3. 泛化 / 继承
+    父类 <|-- 子类 : 继承
+
+    %% 4. 实现 / 接口
+    接口 <|.. 实现类 : 实现
+
+    %% 5. 聚合关系（可分离）
+    整体 o-- 部分 : 聚合
+
+    %% 6. 组合关系（不可分离）
+    整体 *-- 部分 : 组合
+
+    %% 真实案例
+    班级 o-- 学生 : 聚合（可分离）
+    人 *-- 器官 : 组合（不可分离）</pre>
+
+<span id="more"></span>
+<h1 id="一、UML-概述"><a href="#一、UML-概述" class="headerlink" title="一、UML 概述"></a>一、UML 概述</h1><p>UML 又称<strong>统一建模语言</strong>或<strong>标准建模语言</strong>，是支持模型化和软件系统开发的图形化语言。其作用域覆盖<strong>面向对象的分析与设计</strong>，并延伸至从需求分析开始的<strong>软件开发生命全过程</strong>。</p>
+<h1 id="二、建模的意义"><a href="#二、建模的意义" class="headerlink" title="二、建模的意义"></a>二、建模的意义</h1><ol>
+<li>模型是对<font color=red>现实的简化</font>，核心目的是<strong>更好地理解复杂系统</strong>。</li>
+<li>支持按实际场景或需求对<font color=red>系统可视化</font>，解决“文字难以描述，画图替代表达”的沟通难题。</li>
+<li>可详细说明系统的<strong>结构与行为</strong>，为系统构建提供标准化的构造模板。</li>
+<li>对开发决策进行<strong>文档化留存</strong>，遵循“先有文档，后有代码”的开发逻辑。</li>
+</ol>
+<h1 id="三、UML-的核心特点⭐️"><a href="#三、UML-的核心特点⭐️" class="headerlink" title="三、UML 的核心特点⭐️"></a>三、UML 的核心特点⭐️</h1><ol>
+<li><strong>标准统一</strong>：被 OMG 组织采纳为<strong>行业标准建模语言</strong>，通用性极强。</li>
+<li><strong>面向对象</strong>：专门适配面向对象开发模式，贴合主流软件设计思想。</li>
+<li><strong>可视化强</strong>：以图形化形式呈现表达逻辑，直观清晰，降低理解门槛。</li>
+<li><font color=red>独立于开发过程：不绑定特定开发模型，可适配瀑布、敏捷、螺旋等所有软件研发流程。</font>⭐️</li>
+<li><strong>简洁易掌握</strong>：概念明确、表达简洁、结构清晰，学习与应用成本低。</li>
+</ol>
+<h1 id="四、UML-概念模型核心构成"><a href="#四、UML-概念模型核心构成" class="headerlink" title="四、UML 概念模型核心构成"></a>四、UML 概念模型核心构成</h1><p>UML 概念模型由<font color=red>基本构造块⭐️ + 规则 + 公共机制</font>三部分组成，核心是对软件系统的抽象表达：</p>
+<h2 id="1-事物（元素）"><a href="#1-事物（元素）" class="headerlink" title="1. 事物（元素）"></a>1. 事物（元素）</h2><p>模型中最具代表性成分的抽象，是 UML 的核心单元，包含四类核心事物：</p>
+<ul>
+<li>结构事物：类、接口、用例、构件、节点等（系统的静态骨架）。</li>
+<li>行为事物：交互、状态机等（系统的动态行为逻辑）。</li>
+<li>分组事物：包（Package），用于组织和划分模型结构。</li>
+<li>注释事物：约束、说明等，用于补充解释模型细节。</li>
+</ul>
+<h2 id="2-关系"><a href="#2-关系" class="headerlink" title="2. 关系"></a>2. 关系</h2><p>事物之间的联系，是 UML 的“动态纽带”，核心包含四类关系：</p>
+<ul>
+<li>关联：基础结构化关系，描述事物间的静态连接（如“人与手机”的关联）。</li>
+<li>聚合：关联的特殊形式，表达<strong>弱整体-部分关系</strong>（部分可独立脱离整体存在，如“轮胎与汽车”）。</li>
+<li>组合：关联的强化形式，表达<strong>强整体-部分关系</strong>（部分无法脱离整体独立存在，如“心脏与人体”）。</li>
+<li>泛化：事物间的继承关系（如“子类继承父类”）。</li>
+<li>依赖：事物间的使用关系（一个事物的变化会影响另一个事物的功能）。</li>
+</ul>
+<p><pre class="mermaid">classDiagram
+    人 -- 手机 : 关联
+    汽车 *-- 轮胎 : 组合
+    汽车 o-- 车门 : 聚合</pre></p>
+<h2 id="3-图"><a href="#3-图" class="headerlink" title="3. 图"></a>3. 图</h2><p>相关事物与关系的集合，是 UML 模型的可视化呈现形式，分为三大类：</p>
+<ul>
+<li>结构图：包含类图、对象图、构件图、部署图，用于描述系统<strong>静态结构</strong>。</li>
+<li>行为图：包含状态机图、活动图，用于描述系统<strong>动态行为</strong>。</li>
+<li>交互图：包含时序图、通信图，用于描述对象间的<strong>消息交互流程</strong>。</li>
+</ul>
+<hr>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="tag"># 基础概念</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
+              <a href="/tags/UML/" rel="tag"># UML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/36-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-UML-%E6%B4%BB%E5%8A%A8%E5%9B%BE/" rel="prev" title="软件工程-UML-活动图">
+                  <i class="fa fa-angle-left"></i> 软件工程-UML-活动图
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/08/professional/43-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%B1%BB%E5%9B%BE/" rel="next" title="软件工程-面向对象-类图">
+                  软件工程-面向对象-类图 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
