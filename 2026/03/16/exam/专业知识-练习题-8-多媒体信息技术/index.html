@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.lit402.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本次错题核心：混淆进程标识、同步调度、死锁条件，记错虚拟内存与文件系统核心功能，对OS分类、时间片及软件著作权边界判断不清。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多媒体信息技术-练习题">
+<meta property="og:url" content="https://blog.lit402.top/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-8-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="小红叔de博客">
+<meta property="og:description" content="本次错题核心：混淆进程标识、同步调度、死锁条件，记错虚拟内存与文件系统核心功能，对OS分类、时间片及软件著作权边界判断不清。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-16T15:36:32.000Z">
+<meta property="article:modified_time" content="2026-03-22T14:34:18.608Z">
+<meta property="article:author" content="Haru kong">
+<meta property="article:tag" content="多媒体信息技术">
+<meta property="article:tag" content="练习题">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.lit402.top/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-8-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.lit402.top/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-8-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/","path":"2026/03/16/exam/专业知识-练习题-8-多媒体信息技术/","title":"多媒体信息技术-练习题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>多媒体信息技术-练习题 | 小红叔de博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小红叔de博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">计算机类岗位备考全记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-专业知识"><a href="/professional/" rel="section"><i class="fa fa-laptop-code fa-fw"></i>专业知识</a></li><li class="menu-item menu-item-资料分析"><a href="/analysis/" rel="section"><i class="fa fa-bar-chart fa-fw"></i>资料分析</a></li><li class="menu-item menu-item-判断推理"><a href="/judgement/" rel="section"><i class="fa fa-sitemap fa-fw"></i>判断推理</a></li><li class="menu-item menu-item-言语理解"><a href="/verbal/" rel="section"><i class="fa fa-comment-dots fa-fw"></i>言语理解</a></li><li class="menu-item menu-item-数量关系"><a href="/quantitative/" rel="section"><i class="fa fa-calculator fa-fw"></i>数量关系</a></li><li class="menu-item menu-item-常识判断"><a href="/general/" rel="section"><i class="fa fa-book fa-fw"></i>常识判断</a></li><li class="menu-item menu-item-常识积累"><a href="/knowledge/" rel="section"><i class="fa fa-lightbulb fa-fw"></i>常识积累</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">计算机操作系统错题集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E7%9B%AE%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">科目：计算机操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%80%89%E9%A2%98%E9%83%A8%E5%88%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">单选题部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%80%89%E9%A2%98%E9%83%A8%E5%88%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">多选题部分</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Haru kong</p>
+  <div class="site-description" itemprop="description">江苏事业编计算机岗位备考</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">137</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.lit402.top/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-8-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Haru kong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小红叔de博客">
+      <meta itemprop="description" content="江苏事业编计算机岗位备考">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="多媒体信息技术-练习题 | 小红叔de博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          多媒体信息技术-练习题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-16 23:36:32" itemprop="dateCreated datePublished" datetime="2026-03-16T23:36:32+08:00">2026-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-22 22:34:18" itemprop="dateModified" datetime="2026-03-22T22:34:18+08:00">2026-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业知识</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本次错题核心：<strong>混淆进程标识、同步调度、死锁条件，记错虚拟内存与文件系统核心功能，对OS分类、时间片及软件著作权边界判断不清</strong>。</p>
+</blockquote>
+<hr>
+<span id="more"></span>
+<h1 id="计算机操作系统错题集"><a href="#计算机操作系统错题集" class="headerlink" title="计算机操作系统错题集"></a>计算机操作系统错题集</h1><hr>
+<h2 id="科目：计算机操作系统"><a href="#科目：计算机操作系统" class="headerlink" title="科目：计算机操作系统"></a>科目：计算机操作系统</h2><hr>
+<h3 id="单选题部分"><a href="#单选题部分" class="headerlink" title="单选题部分"></a>单选题部分</h3><p>【题干】1、以下列文件格式存储的图像，在图像缩放过程中不易失真的是（ ）<br>A、BMP<br>B、GIF<br>C、JPG<br>D、SWF<br>【你的答案】A<br>【正确答案】D<br>【错误原因】误选BMP，BMP是位图，放大会失真；SWF是矢量格式<br>【考点】图像格式<br>【解题技巧】矢量图（SWF/WMF）缩放不失真；位图（BMP/JPG/GIF）放大会失真</p>
+<hr>
+<p>【题干】2、MIDI音频文件是（ ）<br>A、一种波形文件<br>B、一种采用PCM压缩的波形文件<br>C、是MP3的一种格式<br>D、是一种符号化的音频信号，记录的是一种指令序列<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】音频格式<br>【解题技巧】MIDI是指令序列，不是波形，体积极小</p>
+<hr>
+<p>【题干】3、关于文件的压缩，以下说法正确的是（ ）<br>A、文本文件与图形图像都可以采用有损压缩<br>B、文本文件与图形图像都不可以采用有损压缩<br>C、文本文件可以采用有损压缩，图形图像不可以<br>D、图形图像可以采用有损压缩，文本文件不可以<br>【你的答案】A<br>【正确答案】D<br>【错误原因】误选A，文本文件必须无损压缩，图形图像可有损<br>【考点】数据压缩<br>【解题技巧】文本/程序：无损压缩；图像/音频/视频：可有损压缩</p>
+<hr>
+<p>【题干】4、下图为矢量图形文件格式的是（ ）<br>A、WMF<br>B、JPG<br>C、GIF<br>D、BMP<br>【你的答案】D<br>【正确答案】A<br>【错误原因】误选BMP，BMP是位图格式<br>【考点】图形格式<br>【解题技巧】矢量图格式：WMF、SVG、AI；位图：JPG/GIF/BMP</p>
+<hr>
+<p>【题干】5、一幅图像的分辨率为256×512，计算机的屏幕分辨率是1024×768，该图像按100%显示时，占据屏幕的（ ）。<br>A、1/2<br>B、1/6<br>C、1/3<br>D、1/10<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】图像分辨率计算<br>【解题技巧】图像面积：256×512；屏幕面积：1024×768；占比=(256×512)/(1024×768)=1/6</p>
+<hr>
+<p>【题干】6.下列文件格式中都是图像文件格式的是（ ）。<br>A、GIF，TIFF，BMP，PCX，TGA<br>B、GIF，TIFF，BMP，PCX，WAV<br>C、GIF，TIFF，BMP，DOC，TGA<br>D、GIF，TIFF，BMP，PCX，TXT<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】文件格式<br>【解题技巧】WAV是音频，DOC/TXT是文档，只有A全是图像格式</p>
+<hr>
+<p>【题干】7、下列采集的波形声音( )的质量最好。<br>A. 单声道、8位量化、22.05kHz采样频率<br>B. 双声道、8位量化、44.1kHz采样频率<br>C. 单声道、16位量化、22.05kHz采样频率<br>D. 双声道、16位量化、44.1kHz采样频率<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】音频质量<br>【解题技巧】音频质量：声道数↑、量化位数↑、采样频率↑ → 音质越好</p>
+<hr>
+<p>【题干】8、以下（ ）不是常见的声音文件格式。<br>A、MPEG文件<br>B、WAV文件<br>C、MIDI文件<br>D、mp3文件<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】音频格式<br>【解题技巧】MPEG是视频/音频容器格式，非纯音频格式；常见音频：WAV/MIDI/MP3</p>
+<hr>
+<p>【题干】9、下列文件中，数据量最小的是（ ）<br>A、一个含100万字的TXT文本文件<br>B、一个分辨率为1024×768，颜色量化位数24位的BMP位图文件<br>C、一段10分钟的MP3音频文件<br>D、一段10分钟的MPEG视频文件<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】数据量计算<br>【解题技巧】100万字TXT≈2MB；BMP≈2.25MB；10分钟MP3≈80MB；视频≈几百MB</p>
+<hr>
+<p>【题干】10、以下文件格式哪种不是视频文件（ ）<br>A、<em>.MOV<br>B、</em>.AVI<br>C、<em>.JPEG<br>D、</em>.RM<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】视频格式<br>【解题技巧】JPEG是图像格式；MOV/AVI/RM是视频格式</p>
+<hr>
+<p>【题干】11、信息熵冗余是指码元的实际编码（ ）<br>A、比信源的信息熵值大<br>B、比信源的信息熵值小<br>C、与信源的信息熵值相等<br>D、与信源的信息熵值不等<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】信息熵<br>【解题技巧】信息熵是最小平均码长，实际编码码长≥熵值，冗余=实际码长-熵值</p>
+<hr>
+<p>【题干】12.图像分辨率是指：（ ）<br>A、屏幕上能够显示的像素数目<br>B、用像素表示的数字化图像的实际大小<br>C、用厘米表示的图像的实际尺寸大小<br>D、图像所包含的颜色数<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】图像分辨率<br>【解题技巧】分辨率=图像像素行数×列数；屏幕分辨率是显示设备参数</p>
+<hr>
+<p>【题干】13、以下哪种不是图像文件格式。（ ）<br>A、BMP<br>B、JPG<br>C、GIF<br>D、MPG<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】文件格式<br>【解题技巧】MPG是视频格式；BMP/JPG/GIF是图像格式</p>
+<hr>
+<p>【题干】14、多媒体当中的媒体指的是以下哪种媒体（ ）<br>A、表现媒体<br>B、表示媒体<br>C、感觉媒体<br>D、存储媒体<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】媒体分类<br>【解题技巧】多媒体中的“媒体”指感觉媒体（声音、图像、文字等）</p>
+<hr>
+<p>【题干】15、目前多媒体计算机中对动态图像数据压缩常采用（ ）<br>A、JPEG<br>B、GIF<br>C、MPEG<br>D、BMP<br>【你的答案】B<br>【正确答案】C<br>【错误原因】误选GIF，GIF是静态/简单动画，MPEG是动态视频压缩标准<br>【考点】视频压缩<br>【解题技巧】JPEG：静态图像；MPEG：动态视频；GIF：简单动画</p>
+<hr>
+<p>【题干】16、下面不是衡量数据压缩技术性能的重要指标的是（ ）<br>A、压缩比<br>B、算法复杂度<br>C、恢复效果<br>D、标准化<br>【你的答案】B<br>【正确答案】D<br>【错误原因】误选算法复杂度，标准化不是核心性能指标<br>【考点】压缩性能指标<br>【解题技巧】核心指标：压缩比、恢复质量、算法复杂度；标准化是行业规范</p>
+<hr>
+<p>【题干】17、视频信息的最小单位是（ ）<br>A、比率<br>B、帧<br>C、赫兹<br>D、位（bit）<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】视频概念<br>【解题技巧】视频由连续帧组成，帧是最小画面单位</p>
+<hr>
+<p>【题干】18、在超文本和超媒体中，不同信息块之间的连接是通过（ ）来连接的。<br>A、节点<br>B、字节<br>C、链<br>D、字<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】超文本<br>【解题技巧】超文本结构：节点（信息块）+ 链（连接关系）</p>
+<hr>
+<p>【题干】19、下面关于数字视频质量、数据量、压缩比关系的论述，哪个是不恰当的？（ ）<br>A、数字视频质量越高，数据量越大<br>B、压缩比增大，解压后数字视频质量开始下降<br>C、对同一文件，压缩比越大数据量越小<br>D、数据量与压缩比是一对矛盾<br>【你的答案】D<br>【正确答案】B<br>【错误原因】误选D，压缩比与数据量成反比，是矛盾关系；B中“开始下降”表述不准确，压缩比超过阈值才会明显降质<br>【考点】视频压缩<br>【解题技巧】压缩比↑→数据量↓→质量可能↓（超过阈值后明显）</p>
+<hr>
+<p>【题干】20、缩小当前图像的画布大小后，图像分辨率会发生怎样的变化？（ ）<br>A、图像分辨率降低<br>B、图像分辨率增高<br>C、图像分辨率不变<br>D、不能进行这样的更改<br>【你的答案】A<br>【正确答案】C<br>【错误原因】误选A，画布大小改变不影响图像分辨率<br>【考点】图像分辨率<br>【解题技巧】分辨率=像素数；画布大小是显示尺寸，像素数不变则分辨率不变</p>
+<hr>
+<p>【题干】21、下列哪个文件格式既可以存储静态图像，又可以存储动态图像（ ）<br>A、.jpg<br>B、.mid<br>C、.gif<br>D、.bmp<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】图像格式<br>【解题技巧】GIF支持静态图和多帧动画；JPG/BMP仅静态；MID是音频</p>
+<hr>
+<p>【题干】22、2分钟 PAL制(25帧/s)720*576 分辨率 24位真彩色数字视频的不压缩的数据量是多少MB？（ ）<br>A、3560<br>B、356<br>C、28480<br>D、3.47<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】视频数据量计算<br>【解题技巧】数据量=帧像素数×位数×帧率×时长/8/1024/1024 = (720×576×24×25×120)/(8×1024×1024)≈3560MB</p>
+<hr>
+<p>【题干】23、在图像像素的数量不变时，增加图像的宽度和高度，图像分辨率会发生怎样的变化？（ ）<br>A、图像分辨率降低<br>B、图像分辨率增高<br>C、图像分辨率不变<br>D、不能进行这样的更改<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】图像分辨率<br>【解题技巧】像素总数不变，尺寸变大→单位面积像素数减少→分辨率降低</p>
+<hr>
+<p>【题干】24、在JPEG中使用了（ ）两种熵编码方法。<br>A、统计编码和算术编码<br>B、PCM编码和DPCM编码<br>C、预测编码和变换编码<br>D、哈夫曼编码和算术编码<br>【你的答案】C<br>【正确答案】D<br>【错误原因】误选C，预测/变换是冗余压缩；哈夫曼/算术是熵编码<br>【考点】JPEG编码<br>【解题技巧】JPEG：DCT变换+量化+熵编码（哈夫曼/算术）</p>
+<hr>
+<p>【题干】25、关于图像数字化，以下说法错误的是：( )。<br>A、数字化的图像不能直接观看，必须借助播放设备及软件才能观看<br>B、数字化的图像不会失真<br>C、数字图像传输非常方便<br>D、图像数字化就是将图像用0、1编码的形式来表示<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】图像数字化<br>【解题技巧】数字化过程（采样/量化）会引入失真，并非完全不失真</p>
+<hr>
+<p>【题干】26、某同学的优盘有64M，他想从同学的电脑中拷贝一批1024×768真色彩（32位）的相片，他一次大约能拷贝( )。<br>A、10张<br>B、20张<br>C、30张<br>D、40张<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】图像数据量计算<br>【解题技巧】单张大小=1024×768×32/(8×1024×1024)=3MB；64/3≈21张，选20张</p>
+<hr>
+<p>【题干】27、李明买了一款杂牌MP3，想往机器里添加一些歌曲，于是到网上下载了一些非常喜欢的歌曲，有rm、mp3、wav等格式，结果有些特别喜欢的歌曲在电脑里播放的好好的。传到MP3中却不能播放，你认为可能是什么原因？( )<br>A、传到mp3前必须对音频文件进行格式转换<br>B、MP3播放器不支持某些音频文件格式<br>C、MP3播放器不支持除MP3格式外的其他音频文件<br>D、以上都对<br>【你的答案】D<br>【正确答案】B<br>【错误原因】误选D，并非必须转换，核心是播放器格式支持问题<br>【考点】音频兼容性<br>【解题技巧】杂牌MP3通常只支持MP3格式，对RM/WAV等格式兼容性差</p>
+<hr>
+<p>【题干】28、构成位图图像的最基本单位是( )。<br>A、颜色<br>B、通道<br>C、图层<br>D、像素<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】位图概念<br>【解题技巧】位图由像素阵列组成，像素是最小单位</p>
+<hr>
+<p>【题干】29、对位图和矢量图描述不正确的是：( )<br>A、位图叫图像，矢量图叫图形。<br>B、一般说位图存储容量较大，矢量图存储容量较小。<br>C、位图缩放效果没有矢量图的缩放效果好。<br>D、位图和矢量图在计算机处理过程中是一样的。<br>【你的答案】B<br>【正确答案】D<br>【错误原因】误选B，B描述正确；D错误，位图与矢量图处理方式完全不同<br>【考点】位图与矢量图<br>【解题技巧】位图：像素存储，放大会失真；矢量图：指令存储，缩放不失真</p>
+<hr>
+<p>【题干】30、把时间连续的模拟信号转换为在时间上离散，幅度上连续的模拟信号的过程称为( )<br>A、数字化<br>B、信号采样<br>C、量化<br>D、编码<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】音频数字化<br>【解题技巧】采样：时间离散；量化：幅度离散；编码：二进制表示</p>
+<hr>
+<p>【题干】31、广泛用于Web和图像预览，应用较广的图像压缩格式是( )<br>A、JPEG文件<br>B、GIF文件<br>C、BMP文件<br>D、PSD文件<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】图像格式<br>【解题技巧】JPEG是Web最常用的有损压缩图像格式，兼顾质量与体积</p>
+<hr>
+<p>【题干】32、影响声音质量的因素不包括( )。<br>A、声道数目<br>B、采样频率<br>C、量化位数<br>D、存储介质<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】音频质量<br>【解题技巧】存储介质只影响保存，不影响声音本身质量</p>
+<hr>
+<p>【题干】33、信息接收者在没有接收到完整的信息前就能处理那些已接收到的信息。这种一边接收，一边处理的方式叫( )。<br>A、多媒体技术<br>B、流媒体技术<br>C、所见即所得<br>D、动态处理技术<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】流媒体<br>【解题技巧】流媒体：边下载边播放，无需完整下载</p>
+<hr>
+<p>【题干】34、某同学听说网上有最新的电影《达·芬奇密码》，当他上网打开影片视频时，只听到声音，看不到图像。造成这种现象最有可能的原因是( )？<br>A、网速过慢<br>B、在线观看的人太多了<br>C、服务器过载<br>D、没有安装Windows MPEG4(DivX)插件<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】视频播放<br>【解题技巧】缺少视频解码插件会导致只有声音无图像</p>
+<hr>
+<p>【题干】35、在数字音频信息获取与处理过程中，下述顺序哪个是正确的（ ）。<br>A、A／D变换、采样、压缩、存储、解压缩、D／A变换。<br>B、采样、压缩、A／D变换、存储、解压缩、D／A变换。<br>C、采样、A／D变换、压缩、存储、解压缩、D／A变换。<br>D、采样、D／A变换、压缩、存储、解压缩、A／D变换。<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】音频处理流程<br>【解题技巧】顺序：采样→A/D（模拟转数字）→压缩→存储→解压缩→D/A（数字转模拟）</p>
+<hr>
+<p>【题干】36、下列哪种论述是正确的（ ）。<br>A、音频卡的分类主要是根据采样的频率来分，频率越高，音质越好。<br>B、音频卡的分类主要是根据采样信息的压缩比来分，压缩比越大，音质越好。<br>C、音频卡的分类主要是根据接口功能来分，接口功能越多，音质越好。<br>D、音频卡的分类主要是根据采样量化的位数来分，位数越高，量化精度越高，音质越好。<br>【你的答案】D<br>【正确答案】D<br>【错误原因】作答正确，巩固知识点<br>【考点】音频卡<br>【解题技巧】音频卡核心指标是量化位数，位数越高精度越高</p>
+<hr>
+<p>【题干】37、人耳对不同频率的声音的敏感度存在很大才能差别，（ ）范围的声音信号是最敏感频带，幅度很低的信号都能被听到。<br>A、1KHz-3KHz<br>B、2KHz-4KHz<br>C、3KHz-4KHz<br>D、1KHz-5KHz<br>【你的答案】A<br>【正确答案】B<br>【错误原因】误选A，人耳最敏感频段是2KHz-4KHz<br>【考点】听觉特性<br>【解题技巧】人耳敏感频段：2KHz~4KHz，此频段声音最易被感知</p>
+<hr>
+<p>【题干】38、频率高于20KHZ的声音称为（ ）。<br>A、次声<br>B、可听声<br>C、超声<br>D、噪声<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】声音分类<br>【解题技巧】次声<20Hz；可听声20Hz~20KHz；超声>20KHz</p>
+<hr>
+<p>【题干】39、媒体中的（ ）指的是用于通信中使电信号和感觉媒体之间产生转换用的媒体。<br>A、感觉媒体<br>B、表示媒体<br>C、显示媒体<br>D、存储媒体<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】媒体分类<br>【解题技巧】显示媒体（表现媒体）：电信号与感觉媒体间转换（如显示器、扬声器）</p>
+<hr>
+<p>【题干】40、与矢量图相比，点位图的特点是：（ ）<br>A、显示的色彩更丰富<br>B、数据量较大，但显示速度快<br>C、显示的图更大<br>D、显示分辨率更高<br>【你的答案】B<br>【正确答案】A、B<br>【错误原因】作答正确，巩固知识点<br>【考点】位图与矢量图<br>【解题技巧】位图色彩丰富、数据量大；矢量图缩放不失真、数据量小</p>
+<hr>
+<p>【题干】41、彩色显示屏色彩是由三基色合成而得到。某显示屏三基色R、G、B分别用4位二进制数表达，则它可以表达（ ）种不同颜色。<br>A、65536<br>B、4096<br>C、256<br>D、12<br>【你的答案】A<br>【正确答案】B<br>【错误原因】误选A，4位×3通道=12位，2^12=4096色<br>【考点】颜色深度<br>【解题技巧】颜色数=2^(R位数+G位数+B位数)=2^(4+4+4)=4096</p>
+<hr>
+<p>【题干】42、FLA文件格式属于（ ）。<br>A、图像<br>B、动画<br>C、视频<br>D、音频<br>【你的答案】D<br>【正确答案】B<br>【错误原因】误选D，FLA是Flash源文件，属于动画格式<br>【考点】文件格式<br>【解题技巧】FLA：Flash动画源文件；SWF：发布后的动画文件</p>
+<hr>
+<p>【题干】43、超文本是由信息节点和表示信息节点间相关性的链构成的一个具有一定逻辑结构和语义的网格。（ ）是组成超文本的三要素。<br>A、节点、链和字节<br>B、链、网络和字节<br>C、节点、链和网络<br>D、节点、网络和字节<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】超文本<br>【解题技巧】超文本三要素：节点（信息）、链（连接）、网络（结构）</p>
+<hr>
+<p>【题干】44、多媒体数据压缩的评价标准包括（ ）三个方面。<br>A、压缩比率、压缩与解压缩的速度、编码方法<br>B、压缩质量、压缩与解压缩的速度、编码方法<br>C、压缩比率、压缩质量、压缩与解压缩的速度<br>D、压缩比率、压缩质量、编码方法<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】压缩评价<br>【解题技巧】压缩评价三核心：压缩比、质量、编解码速度</p>
+<hr>
+<p>【题干】45、数字音频采样和量化过程所用的主要硬件是（ ）。<br>A、数字编码器<br>B、数字解码器<br>C、模拟到数字的转换器（A/D转换器）<br>D、数字到模拟的转换器（D/A转换器）<br>【你的答案】D<br>【正确答案】C<br>【错误原因】误选D，A/D转换器负责模拟转数字（采样量化）；D/A是数字转模拟<br>【考点】音频硬件<br>【解题技巧】A/D：模拟→数字（录制）；D/A：数字→模拟（播放）</p>
+<hr>
+<p>【题干】46、下列数字视频中哪个质量最好（ ）。<br>A、40×180 分辨率、24 位真彩色、15 帧/秒的帧率。<br>B、320×240 分辨率、32 位真彩色、25 帧/秒的帧率。<br>C、320×480 分辨率、32 位真彩色、30 帧/秒的帧率。<br>D、640×480 分辨率、16 位真彩色、15 帧/秒的帧率。<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】视频质量<br>【解题技巧】视频质量：分辨率↑、颜色位数↑、帧率↑ → 质量越好</p>
+<hr>
+<p>【题干】47、以 PAL 制 25 帧/秒为例，已知一帧彩色静态图像(RGB)的分辨率为 256x256，每一种颜色用 8bit 表示，则该视频每秒钟的数据量为（ ）。<br>A、256 x 256 x 16 x 25 bps<br>B、512 x 512 x 3 x 8 x 25 bps<br>C、256 x 256 x 3 x 8 x 25 bps<br>D、512 x 512 x 3 x 16 x 25 bps<br>【你的答案】C<br>【正确答案】C<br>【错误原因】作答正确，巩固知识点<br>【考点】视频数据量<br>【解题技巧】数据量=分辨率×颜色通道×位数×帧率 = 256×256×3×8×25 bps</p>
+<hr>
+<p>【题干】48、VCD盘上的视频和音频信号采用国际标准（ ）进行压缩编码，它们按规定的格式交错地存放在光盘上，播放时需进行解压缩处理。<br>A、MPEG-1<br>B、MPEG-2<br>C、MPEG-3<br>D、MPEG-4<br>【你的答案】C<br>【正确答案】A<br>【错误原因】误选C，VCD采用MPEG-1；DVD采用MPEG-2<br>【考点】视频压缩标准<br>【解题技巧】VCD：MPEG-1；DVD：MPEG-2；流媒体：MPEG-4</p>
+<hr>
+<p>【题干】49、在RGB颜色模型中，当R、G、B取值都为0时，表示的颜色（ ）。<br>A、白色<br>B、黑色<br>C、蓝色<br>D、红色<br>【你的答案】B<br>【正确答案】B<br>【错误原因】作答正确，巩固知识点<br>【考点】颜色模型<br>【解题技巧】RGB(0,0,0)=黑色；RGB(255,255,255)=白色</p>
+<hr>
+<p>【题干】50、彩色图像所使用的颜色描述方法称为颜色模型,彩色打印机采用的颜色模型是（ ）。<br>A、CMYK<br>B、HSB<br>C、RGB<br>D、YUV<br>【你的答案】A<br>【正确答案】A<br>【错误原因】作答正确，巩固知识点<br>【考点】颜色模型<br>【解题技巧】显示器：RGB；打印机：CMYK；电视：YUV</p>
+<hr>
+<h3 id="多选题部分"><a href="#多选题部分" class="headerlink" title="多选题部分"></a>多选题部分</h3><p>【题干】1、下列哪些说法是正确的。（ ）<br>A、图像都是由一些排成行列的点（像素）组成的，通常称为位图或点阵图<br>B、图形是用计算机绘制的画面，也称矢量图<br>C、图像的最大优点是容易进行移动、缩放、旋转和扭曲等变换<br>D、图形文件中只记录生成图的算法和图上的某些特征点，数据量较小<br>【你的答案】A、B、C<br>【正确答案】A、B、D<br>【错误原因】误选C，漏选D，图形（矢量图）才易于变换，图像（位图）变换易失真<br>【考点】位图与矢量图<br>【解题技巧】位图：像素组成；矢量图：算法描述，易于变换、数据量小</p>
+<hr>
+<p>【题干】2、衡量数据压缩技术性能的重要指标是( )。<br>A、压缩比<br>B、算法复杂度<br>C、恢复效果<br>D、实现压缩的软、硬件开销<br>【你的答案】A、B、C<br>【正确答案】A、B、C、D<br>【错误原因】漏选D，软硬件开销也是重要性能指标<br>【考点】压缩性能<br>【解题技巧】压缩性能指标：压缩比、恢复质量、算法复杂度、软硬件开销</p>
+<hr>
+<p>【题干】3、多媒体技术的主要特性有( )。<br>A、多样性<br>B、集成性<br>C、交互性<br>D、可扩充性<br>【你的答案】A、C、D<br>【正确答案】A、B、C<br>【错误原因】漏选B，误选D，可扩充性不是多媒体核心特性<br>【考点】多媒体特性<br>【解题技巧】多媒体三大特性：多样性、集成性、交互性</p>
+<hr>
+<p>【题干】4、在多媒体计算机中常用的图像输入设备是（ ）。<br>A、数码照相机<br>B、彩色扫描仪<br>C、视频卡<br>D、彩色摄像机<br>【你的答案】A、B、D<br>【正确答案】A、B、D<br>【错误原因】作答正确，巩固知识点<br>【考点】图像输入设备<br>【解题技巧】数码照相机/扫描仪/摄像机是图像输入设备；视频卡是处理设备</p>
+<hr>
+<p>【题干】5、在多媒体数据压缩的技术中，常用的有损压缩算法有（ ）。<br>A、霍夫曼编码<br>B、预测编码<br>C、变换编码<br>D、LZW算法<br>【你的答案】A、B、C<br>【正确答案】B、C<br>【错误原因】误选A，霍夫曼/LZW是无损压缩；预测/变换是有损压缩<br>【考点】压缩算法<br>【解题技巧】无损压缩：霍夫曼、LZW、游程编码；有损压缩：预测、变换、量化</p>
+<hr>
+<p>【题干】6、声卡的主要功能有（ ）。<br>A、波形声音的获取与数字化<br>B、波形声音的重建与播放<br>C、声音文件的存储<br>D、MIDI声音的合成与播放<br>【你的答案】A、B、D<br>【正确答案】A、B、D<br>【错误原因】作答正确，巩固知识点<br>【考点】声卡功能<br>【解题技巧】声卡：音频采集、播放、MIDI合成；存储是硬盘/内存功能</p>
+<hr>
+<p>【题干】7、在Word中可直接打开的文件类型有（ ）<br>A. DOC<br>B. HTML<br>C. JPG<br>D. RTF<br>【你的答案】A、C<br>【正确答案】A、B、D<br>【错误原因】漏选B，错选C，Word可直接打开DOC/HTML/JPG/RTF等格式<br>【考点】文件兼容性<br>【解题技巧】Word支持多种格式：文档（DOC/RTF）、网页（HTML）、图片（JPG）</p>
+<hr>
+<p>【题干】8、下列哪些说法是正确的（ ）。<br>A、冗余压缩法不会减少信息量,可以原样恢复原始数据。<br>B、冗余压缩法减少了冗余，不能原样恢复原始数据。<br>C、冗余压缩法是有损压缩法。<br>D、冗余压缩的压缩比一般都比较小。<br>【你的答案】C、D<br>【正确答案】A、D<br>【错误原因】漏选A，误选C，冗余压缩（无损压缩）可完全恢复数据，压缩比小<br>【考点】数据压缩<br>【解题技巧】冗余压缩=无损压缩：可恢复、压缩比小；熵压缩=有损压缩：不可恢复、压缩比大</p>
+<hr>
+<p>【题干】9、下列关于数字图像的压缩编码和文件格式的叙述，正确的有。（ ）<br>A、图像压缩的可行性在于图像中的数据相关性很强，且人眼的视觉有一定的局限性<br>B、衡量压缩编码方法的优劣主要看压缩倍数、重建图像质量(有损压缩)和算法复杂度等<br>C、JPEG 图像的压缩倍数是可以选择的，且大多为无损压缩<br>D、GIF 格式的图像支持透明背景和渐进显示<br>【你的答案】A、B、D<br>【正确答案】A、B、D<br>【错误原因】作答正确，巩固知识点<br>【考点】图像压缩<br>【解题技巧】JPEG是有损压缩；GIF支持透明背景与渐进显示</p>
+<hr>
+<p>【题干】10、MIDI 是音乐与计算机相结合的产物，与波形声音相比，使用 MIDI 的缘由是（ ）。<br>A、MIDI 音乐可以合成出全部的声音<br>B、MIDI 音乐易于编辑修改，还可以与波形声音同时播放<br>C、MIDI 文件是一系列指令，而不是波形，它需要的存储空间特别小<br>D、能够仿照乐器的各种演奏技巧，甚至能达到乐器无法演奏的效果<br>【你的答案】B、C、D<br>【正确答案】B、C、D<br>【错误原因】作答正确，巩固知识点<br>【考点】MIDI音频<br>【解题技巧】MIDI优点：体积小、易编辑、可模拟乐器；缺点：无法合成所有声音</p>
+<hr>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"># 练习题</a>
+              <a href="/tags/%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/" rel="tag"># 多媒体信息技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-8-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-%E6%80%BB%E7%BB%93/" rel="prev" title="多媒体信息技术-练习题-总结">
+                  <i class="fa fa-angle-left"></i> 多媒体信息技术-练习题-总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/16/exam/%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86-%E7%BB%83%E4%B9%A0%E9%A2%98-7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="next" title="计算机操作系统-练习题">
+                  计算机操作系统-练习题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Haru kong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
